@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+livros/
+chrome_profile/
+consolidado.xlsx
+error_*.png
+.gemini/
+*.mp4
+planejamento/Capturas/

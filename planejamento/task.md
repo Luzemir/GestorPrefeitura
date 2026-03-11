@@ -1,0 +1,21 @@
+# Task: Automação NFSe Campo Grande
+
+- [x] Fase 1: Mapeamento do Fluxo
+  - [x] Receber arquivos de demonstração visual (vídeo, html).
+  - [x] Mapear tela de Login (Certificado Digital) - Será Login Manual Assistido.
+  - [x] Mapear menu/tela de troca de Empresa (`idCpfCnpj` e botão `Pesquisar`).
+  - [x] Mapear leitura de valores (Botão Excel do `LivroFiscal`).
+- [x] Fase 2: Configuração do Projeto
+  - [x] Criar estrutura do projeto Python/Node.
+  - [x] Instalar Playwright ou Selenium.
+- [x] Fase 3: Script de Login e Navegação
+  - [x] Implementar abertura do navegador preservando perfil/certificados.
+  - [x] Testar captura manual ou clique em "Acessar via Código / Certificado".
+- [x] Analisar a estrutura do relatório base (`LivroFiscal.xlsx`).
+- [/] Fase 4: Loop de Empresas, Layout Consolidador e Exportação
+  - [x] Ler arquivo base (lista de empresas alvo em Excel).
+  - [x] Criar mecanismo de checkpoint (pular CNPJs já processados).
+  - [/] Iterar empresas no portal da prefeitura.
+  - [ ] Efetuar o download do `LivroFiscal.xlsx` de cada uma.
+  - [ ] Consolidar métricas financeiras filtrando status (Ativa/Cancelada).
+  - [ ] Alimentar Planilha Mestre (Master Spreadsheet) com a linha resumida da empresa.

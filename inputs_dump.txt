@@ -1,0 +1,74 @@
+BUTTON | id: button-menu | text: 
+                             
+INPUT | id:  | text: j_idt23
+INPUT | id: j_id1:javax.faces.ViewState:0 | text: -3397963139834600146:-77533246
+BUTTON | id: button-icons | text: 
+                             
+INPUT | id:  | text: j_idt81
+INPUT | id: j_id1:javax.faces.ViewState:1 | text: -3397963139834600146:-77533246
+INPUT | id:  | text: j_idt85
+INPUT | id: j_id1:javax.faces.ViewState:2 | text: -3397963139834600146:-77533246
+INPUT | id:  | text: frmRelatorio
+INPUT | id: j_id1:javax.faces.ViewState:3 | text: -3397963139834600146:-77533246
+INPUT | id: frmRelatorio:j_idt101:j_idt104:idStart_input | text: 
+BUTTON | id:  | text: ui-button
+INPUT | id: frmRelatorio:j_idt101:j_idt104:idEnd_input | text: 
+BUTTON | id:  | text: ui-button
+INPUT | id: frmRelatorio:j_idt101:j_idt128:j_idt133_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt128:j_idt137_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt128:j_idt141_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idExigivel_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idNaoIncidente_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idIsencao_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idExportacao_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idImunidade_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaDecisaoJudicial_input | text: on
+INPUT | id: frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaProcessoAdministrativo_input | text: on
+INPUT | id:  | text: j_idt239
+INPUT | id: j_id1:javax.faces.ViewState:4 | text: -3397963139834600146:-77533246
+INPUT | id: j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchcodigoCnae | text: 
+INPUT | id: j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchnomeCompleto | text: 
+INPUT | id: j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchcodigoServico | text: 
+INPUT | id: j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchdescricaoServico | text: 
+INPUT | id: j_idt239:j_idt240:j_idt244:tabViewFilterSearch_activeIndex | text: 0
+INPUT | id: j_idt239:j_idt240:dataTableSelect_selection | text: 
+INPUT | id: j_idt239:j_idt240:dataTableSelect_scrollState | text: 0,0
+BUTTON | id: j_idt239:j_idt240:j_idt326 | text: ui-button
+INPUT | id:  | text: j_idt357
+INPUT | id: j_id1:javax.faces.ViewState:5 | text: -3397963139834600146:-77533246
+INPUT | id:  | text: j_idt358
+INPUT | id: j_id1:javax.faces.ViewState:6 | text: -3397963139834600146:-77533246
+BUTTON | id:  | text: 
+BUTTON | id:  | text: 
+BUTTON | id:  | text: 
+BUTTON | id:  | text: 
+
+
+--- LABELS ---
+
+TEMPO DE SESSÃO -> null
+PRECISA DE AJUDA? CLIQUE AQUI -> null
+Inicio* -> null
+Fim* -> null
+Agrupamento -> frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_label
+Normal -> null
+Cancelada -> null
+Substituida -> null
+Recolhimento -> frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_label
+Exigível -> idExigivel
+Não Incidente -> idNaoIncidente
+Isenção -> idIsencao
+Exportação -> idExportacao
+Imunidade -> idImunidade
+Suspensa Por Decisão Judicial -> idExigibilidadeSuspensaDecisaoJudicial
+Suspensa Por Processo Administrativo -> idExigibilidadeSuspensaProcessoAdministrativo
+Saída -> frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_label
+ -> null
+DSF / Desenvolvimento de Sistemas Fiscais -> null
+Nota Fiscal de Serviço Eletrônica / 2026.02.27.1029 WEB02 -> null
+Todos os Direitos Reservados -> null
+CNAE -> null
+Descrição Atividade -> null
+Código Serviço -> null
+Descrição Serviço -> null
+Quantidade  -> null

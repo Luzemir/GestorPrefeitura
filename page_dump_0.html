@@ -1,0 +1,914 @@
+<!DOCTYPE html><html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml"><head id="j_idt2"><style type="text/css">.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}</style><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/primeicons/primeicons.css.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/theme.css.jsf?ln=css"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/font-awesome/5.13.1/css/all-jsf.css.jsf?ln=webjars"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/font-awesome/5.13.1/css/v4-shims.min-jsf.css.jsf?ln=webjars"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/animate.css/animate.css.jsf?ln=vendor"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/bootstrap/3.3.1/css/bootstrap-jsf.css.jsf?ln=webjars"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/primeflex/3.3.1/primeflex.css.jsf?ln=webjars"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/primeflex/3.3.1/themes/primeone-light.css.jsf?ln=webjars"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/pe-icon-7-stroke/css/pe-icon-7-stroke.css.jsf?ln=fonts"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/pe-icon-7-stroke/css/helper.css.jsf?ln=fonts"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/style.css.jsf?ln=css"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/toastr/build/toastr.min.css.jsf?ln=vendor"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/jarch.css.jsf?ln=css"><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/local.css.jsf?ln=css"><script type="text/javascript" src="/notafiscal/javax.faces.resource/jquery/jquery.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/jquery/jquery-plugins.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/core.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/components.css.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"><script type="text/javascript" src="/notafiscal/javax.faces.resource/moment/moment.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/primefaces-extensions.js.jsf?ln=primefaces-extensions&amp;v=14.0.0&amp;e=14.0.0"></script><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/timer/timer.css.jsf?ln=primefaces-extensions&amp;v=14.0.0&amp;e=14.0.0"><script type="text/javascript" src="/notafiscal/javax.faces.resource/timer/timer.js.jsf?ln=primefaces-extensions&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/components.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/inputmask/inputmask.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/datepicker/datepicker.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/filedownload/filedownload.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><link type="text/css" rel="stylesheet" href="/notafiscal/javax.faces.resource/scrollpanel/scrollpanel.css.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"><script type="text/javascript" src="/notafiscal/javax.faces.resource/scrollpanel/scrollpanel.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/touch/touchswipe.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script src="/notafiscal/javax.faces.resource/validation/validation.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script src="/notafiscal/javax.faces.resource/validation/validation.bv.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script src="/notafiscal/javax.faces.resource/locales/locale-pt.js.jsf?ln=primefaces&amp;v=14.0.0&amp;e=14.0.0"></script><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='pt_BR';PrimeFaces.settings.viewId='/paginas/livrofiscal/relatorioLivroFiscal.xhtml';PrimeFaces.settings.contextPath='/notafiscal';PrimeFaces.settings.cookiesSecure=false;PrimeFaces.settings.validateEmptyFields=true;PrimeFaces.settings.considerEmptyStringNull=true;}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>NFS-e</title>
+
+    <link rel="shortcut icon" href="/notafiscal/resources/images/logo-login.png">
+        <link rel="stylesheet" href="../../resources/css_novo/style.css"><script type="text/javascript" src="/notafiscal/javax.faces.resource/toastr/build/toastr.min.js.jsf?ln=vendor"></script><style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head><body class="show-sidebar"><div id="messageHeader:messageHeader" class="messageheader base-messageheader messageheader">
+        <script type="application/javascript">
+
+            $('.toast').hide(function () {
+                $(this).remove();
+            });
+
+            // if (configToastr != undefined) {
+            //     configToastr();
+            // }
+
+            var message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.info(message);
+            }
+
+            message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.warning(message);
+            }
+
+            message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.error(message);
+            }
+
+            message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.success(message);
+            }
+        </script></div>
+
+        <div id="template-base" class="show-sidebar"><header id="header" style="display: block">
+
+                <div class="color-line">
+
+                </div>
+
+                <div id="logo" class="light-version">
+                    <div class="logo-menu">
+                        <p class="descricao-sistema-menu" style="margin-top: -10px">Nota Fiscal de Serviço Eletrônica</p>
+                    </div>
+                </div>
+
+                <nav role="navigation">
+                    <div class="header-link hide-menu">
+                        Menu <i class="fa fa-bars"></i>
+                    </div>
+
+                    <div class="small-logo">
+                        <div class="logo-menu" style="padding: 5px">
+                            <p class="descricao-sistema-menu">NFS-e</p>
+                        </div>
+                    </div>
+
+                    <div class="mobile-menu">
+                        <button id="button-menu" type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse-menu" onclick="$('#button-icons').removeClass('collapsed'); $('#mobile-collapse-icon').removeClass('collapsed'); $('#mobile-collapse-icon').removeClass('in'); ">
+                            <i class="fa fa-chevron-down"></i> Menu
+                        </button>
+
+                        <div id="mobile-collapse-menu" class="collapse mobile-navbar">
+<form id="j_idt23" name="j_idt23" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt23" value="j_idt23">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+
+
+    <ul class="side-menu nav">	<li id="0">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Alteração Senha'}]); redirectURL([{name:'urlMenu', value:'../login/alterarSenha.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Alteração Senha</span> 		</a> 	</li> 	<li id="1">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Seleciona Cadastro '}]); redirectURL([{name:'urlMenu', value:'../selecionacadastro/selecionaCadastro.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Seleciona Cadastro </span> 		</a> 	</li> 	<li id="18646">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Procuração Eletrônica'}]); redirectURL([{name:'urlMenu', value:'../procuracao/procuracaoList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Procuração Eletrônica</span> 		</a> 	</li> 	<li id="18709">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Configuração Empresa'}]); redirectURL([{name:'urlMenu', value:'../configuracaoempresa/configuracaoEmpresaList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Configuração Empresa</span> 		</a> 	</li> <li id="18661" class=""> 		<a href="#"> 			<span class="nav-label">NFSe Prestador</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse" onclick=""> 	<li id="18662">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSe Prestador-&gt;Emitir Nota Fiscal'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/emissaoNotaFiscalList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Nota Fiscal</span> 		</a> 	</li> 	<li id="18663">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSe Prestador-&gt;Emitir Nota Fiscal Retroativa'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/emissaoNotaFiscalList.jsf?TIPO=NFR'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Nota Fiscal Retroativa</span> 		</a> 	</li> 		</ul> 	</li> <li id="18639" class=""> 		<a href="#"> 			<span class="nav-label">Guia</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse" onclick=""> 	<li id="18642">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Guia-&gt;Emitir Guia'}]); redirectURL([{name:'urlMenu', value:'../guia/guiaList.jsf?emitir=S'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Guia</span> 		</a> 	</li> 	<li id="18640">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Guia-&gt;Gerenciar Guias'}]); redirectURL([{name:'urlMenu', value:'../guia/guiaList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Gerenciar Guias</span> 		</a> 	</li> 		</ul> 	</li> <li id="18643" class=""> 		<a href="#"> 			<span class="nav-label">NFSE TOMADOR</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse" onclick=""> 	<li id="18645">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSE TOMADOR-&gt;Emitir Nota Fiscal Tomador'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/emissaoNotaFiscalList.jsf?TIPO=NFT'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Nota Fiscal Tomador</span> 		</a> 	</li> 	<li id="18644">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSE TOMADOR-&gt;Importação Nota Tomador'}]); redirectURL([{name:'urlMenu', value:'../importacaotomador/importacaoTomadorList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Importação Nota Tomador</span> 		</a> 	</li> 		</ul> 	</li> <li id="18665" class="active"> 		<a href="#"> 			<span class="nav-label">Gerenciar NFSe</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse in" onclick=""> 	<li id="18666">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Consulta Nota Fiscal'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/notaFiscalList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Consulta Nota Fiscal</span> 		</a> 	</li> 	<li id="18667">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Livro Fiscal'}]); redirectURL([{name:'urlMenu', value:'../livrofiscal/relatorioLivroFiscal.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Livro Fiscal</span> 		</a> 	</li> 	<li id="18669">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Nota Fiscal Talão'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/notaFiscalTalaoList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Nota Fiscal Talão</span> 		</a> 	</li> 	<li id="18670">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Exportar XML NFSe'}]); redirectURL([{name:'urlMenu', value:'../exportacaonota/exportacaoNota.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Exportar XML NFSe</span> 		</a> 	</li> 		</ul> 	</li> 
+    </ul><script id="j_idt23:j_idt28" type="text/javascript">saveMenuParent = function() {return PrimeFaces.ab({s:"j_idt23:j_idt28",f:"j_idt23",pa:arguments[0]});}</script><script id="j_idt23:j_idt29" type="text/javascript">redirectURL = function() {return PrimeFaces.ab({s:"j_idt23:j_idt29",f:"j_idt23",pa:arguments[0]});}</script><script id="j_idt23:j_idt30" type="text/javascript">executeEL = function() {return PrimeFaces.ab({s:"j_idt23:j_idt30",f:"j_idt23",onco:function(xhr,status,args,data){hideMessageProcess();;},pa:arguments[0]});}</script><script id="j_idt23:j_idt31" type="text/javascript">executeELAndReload = function() {return PrimeFaces.ab({s:"j_idt23:j_idt31",f:"j_idt23",onco:function(xhr,status,args,data){location.reload();;},pa:arguments[0]});}</script>
+
+
+</form>
+                        </div>
+
+                        <button id="button-icons" type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse-icon" onclick="$('#button-menu').removeClass('collapsed'); $('#mobile-collapse-menu').removeClass('collapsed'); $('#mobile-collapse-menu').removeClass('in'); ">
+                            <i class="fa fa-chevron-down"></i> Ícones
+                        </button>
+
+                        <div id="mobile-collapse-icon" class="collapse mobile-navbar">
+    <ul class="nav navbar-nav no-borders">
+
+
+        <li class="dropdown home" style="display: block">
+            <a href="../login/bemVindo.jsf" onclick="showMessageProcess()">
+                <i class="pe-7s-home"></i> Home
+            </a>
+        </li>
+            <li class="dropdown home" style="display: block">
+                <a href="../usuario/alteracaoUsuario.jsf">
+                    <i class="pe-7s-id"></i> Alterar Usuário
+                </a>
+            </li>
+
+        
+        <li class="dropdown base-communication base-alert" style="display: none">
+            <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                <i class="pe-7s-speaker"></i> Alertas
+                <span class="label label-info">
+                    0
+                </span>
+            </a>
+
+            <ul class="dropdown-menu hdropdown notification animated flipInX" style="max-height: 600px; overflow: auto">
+                <div class="title">
+                    Alerta(s) Recebido(s)
+                </div>
+            </ul>
+        </li>
+
+        
+        <li class="dropdown base-communication base-message" style="display: none">
+            <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                <i class="pe-7s-mail"></i> Mensagens
+                <span class="label label-info">
+                    0
+                </span>
+            </a>
+            <ul class="dropdown-menu hdropdown notification animated flipInX" style="max-height: 600px; overflow: auto">
+                <div class="title">
+                    <a href="../communication/communicationList.xhtml" onclick="showMessageProcess()"> Mensagem(ns) Recebida(s) </a>
+                </div>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a class="botaoSairMenu" href="#">
+                <i class="pe-7s-upload pe-rotate-90"></i> Sair
+            </a>
+        </li>
+    </ul>
+
+
+                        </div>
+                    </div>
+
+                    <div class="navbar-left logo-menu-center">
+                        
+                        <img src="../../resources/images/logo-menu-center.png" height="10px" style="margin: 0">
+                        
+                    </div>
+
+                    
+                    <div id="navbartop" class="navbar-right">
+    <ul class="nav navbar-nav no-borders">
+
+
+        <li class="dropdown home" style="display: block">
+            <a href="../login/bemVindo.jsf" onclick="showMessageProcess()">
+                <i class="pe-7s-home"></i> 
+            </a>
+        </li>
+            <li class="dropdown home" style="display: block">
+                <a href="../usuario/alteracaoUsuario.jsf">
+                    <i class="pe-7s-id"></i> 
+                </a>
+            </li>
+
+        
+        <li class="dropdown base-communication base-alert" style="display: none">
+            <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                <i class="pe-7s-speaker"></i> 
+                <span class="label label-info">
+                    0
+                </span>
+            </a>
+
+            <ul class="dropdown-menu hdropdown notification animated flipInX" style="max-height: 600px; overflow: auto">
+                <div class="title">
+                    Alerta(s) Recebido(s)
+                </div>
+            </ul>
+        </li>
+
+        
+        <li class="dropdown base-communication base-message" style="display: none">
+            <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                <i class="pe-7s-mail"></i> 
+                <span class="label label-info">
+                    0
+                </span>
+            </a>
+            <ul class="dropdown-menu hdropdown notification animated flipInX" style="max-height: 600px; overflow: auto">
+                <div class="title">
+                    <a href="../communication/communicationList.xhtml" onclick="showMessageProcess()"> Mensagem(ns) Recebida(s) </a>
+                </div>
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a class="botaoSairMenu" href="#">
+                <i class="pe-7s-upload pe-rotate-90"></i> 
+            </a>
+        </li>
+    </ul>
+
+
+
+                    </div>
+                </nav></header><nav id="menu" style="display: block">
+                <div id="navigation">
+                    <div class="profile-picture">
+                        <a href="../login/login.jsf" style="display: none">
+                            <img src="../../resources/images/profile.jpg" class="img-circle m-b" alt="logo">
+                        </a>
+
+                        <div class="stats-label text-color">
+                            
+                            <div class="stats-label text-color">
+                            <span class="font-bold font-uppercase">
+                            	Usuário
+                            </span>
+                                <br>
+                                <small class="text-muted">
+                                    Login - 05425382000119
+                                </small>
+                                <br>
+                                <small class="text-muted">
+                                    Nome - CONTILI CONTABILIDADE INTELIGENTE LTDA
+                                </small><div>
+                                    <span class="font-bold font-uppercase">
+                                        <br>
+                                        Representando
+                                    </span><small class="text-muted">
+                                        <br>
+                                        50277429000107
+                                    </small><small class="text-muted">
+                                        <br>
+                                        50.277.429 GABRIELLE AJALA LANGUER
+                                    </small></div>
+                                    <br>
+
+                                    <small class="text-muted">
+                                        IM - 00353850008
+                                    </small>
+
+                                <div>
+                                    <br>
+                                    <span class="font-bold font-uppercase">
+                                            Último Acesso
+                                        </span>
+                                    <br>
+                                    <small class="text-muted">
+                                        02/03/2026 23:04
+                                    </small>
+                                </div>
+
+                                <div>
+                                    <br>
+<form id="j_idt81" name="j_idt81" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt81" value="j_idt81">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+<table style="width: 100%">
+<tbody>
+<tr>
+<td><label id="j_idt81:j_idt83" class="ui-outputlabel ui-widget font-bold font-uppercase"><span class="ui-outputlabel-label">Tempo de Sessão</span></label></td>
+</tr>
+<tr>
+<td><span id="j_idt81:timerSessionApplication" title="" class="ui-timer ui-widget ui-widget-header ui-corner-all jarch-timer-sessao" style="border: unset">00:22:01</span></td>
+</tr>
+</tbody>
+</table>
+
+</form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="nav" id="side-menu">
+<form id="j_idt85" name="j_idt85" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt85" value="j_idt85">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:2" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+
+
+    <ul class="side-menu nav">	<li id="0">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Alteração Senha'}]); redirectURL([{name:'urlMenu', value:'../login/alterarSenha.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Alteração Senha</span> 		</a> 	</li> 	<li id="1">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Seleciona Cadastro '}]); redirectURL([{name:'urlMenu', value:'../selecionacadastro/selecionaCadastro.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Seleciona Cadastro </span> 		</a> 	</li> 	<li id="18646">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Procuração Eletrônica'}]); redirectURL([{name:'urlMenu', value:'../procuracao/procuracaoList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Procuração Eletrônica</span> 		</a> 	</li> 	<li id="18709">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Configuração Empresa'}]); redirectURL([{name:'urlMenu', value:'../configuracaoempresa/configuracaoEmpresaList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Configuração Empresa</span> 		</a> 	</li> <li id="18661" class=""> 		<a href="#"> 			<span class="nav-label">NFSe Prestador</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse" onclick=""> 	<li id="18662">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSe Prestador-&gt;Emitir Nota Fiscal'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/emissaoNotaFiscalList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Nota Fiscal</span> 		</a> 	</li> 	<li id="18663">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSe Prestador-&gt;Emitir Nota Fiscal Retroativa'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/emissaoNotaFiscalList.jsf?TIPO=NFR'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Nota Fiscal Retroativa</span> 		</a> 	</li> 		</ul> 	</li> <li id="18639" class=""> 		<a href="#"> 			<span class="nav-label">Guia</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse" onclick=""> 	<li id="18642">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Guia-&gt;Emitir Guia'}]); redirectURL([{name:'urlMenu', value:'../guia/guiaList.jsf?emitir=S'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Guia</span> 		</a> 	</li> 	<li id="18640">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Guia-&gt;Gerenciar Guias'}]); redirectURL([{name:'urlMenu', value:'../guia/guiaList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Gerenciar Guias</span> 		</a> 	</li> 		</ul> 	</li> <li id="18643" class=""> 		<a href="#"> 			<span class="nav-label">NFSE TOMADOR</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse" onclick=""> 	<li id="18645">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSE TOMADOR-&gt;Emitir Nota Fiscal Tomador'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/emissaoNotaFiscalList.jsf?TIPO=NFT'}]); showMessageProcess(true);">			<span class="nav-label">Emitir Nota Fiscal Tomador</span> 		</a> 	</li> 	<li id="18644">		<a onclick="saveMenuParent([{name:'nameMenu', value:'NFSE TOMADOR-&gt;Importação Nota Tomador'}]); redirectURL([{name:'urlMenu', value:'../importacaotomador/importacaoTomadorList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Importação Nota Tomador</span> 		</a> 	</li> 		</ul> 	</li> <li id="18665" class="active"> 		<a href="#"> 			<span class="nav-label">Gerenciar NFSe</span> 			<span class="fa arrow"> </span> 		</a> 		<ul class="nav nav-second-level collapse in" onclick=""> 	<li id="18666">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Consulta Nota Fiscal'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/notaFiscalList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Consulta Nota Fiscal</span> 		</a> 	</li> 	<li id="18667">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Livro Fiscal'}]); redirectURL([{name:'urlMenu', value:'../livrofiscal/relatorioLivroFiscal.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Livro Fiscal</span> 		</a> 	</li> 	<li id="18669">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Nota Fiscal Talão'}]); redirectURL([{name:'urlMenu', value:'../notafiscal/notaFiscalTalaoList.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Nota Fiscal Talão</span> 		</a> 	</li> 	<li id="18670">		<a onclick="saveMenuParent([{name:'nameMenu', value:'Gerenciar NFSe-&gt;Exportar XML NFSe'}]); redirectURL([{name:'urlMenu', value:'../exportacaonota/exportacaoNota.jsf'}]); showMessageProcess(true);">			<span class="nav-label">Exportar XML NFSe</span> 		</a> 	</li> 		</ul> 	</li> 
+    </ul><script id="j_idt85:j_idt90" type="text/javascript">saveMenuParent = function() {return PrimeFaces.ab({s:"j_idt85:j_idt90",f:"j_idt85",pa:arguments[0]});}</script><script id="j_idt85:j_idt91" type="text/javascript">redirectURL = function() {return PrimeFaces.ab({s:"j_idt85:j_idt91",f:"j_idt85",pa:arguments[0]});}</script><script id="j_idt85:j_idt92" type="text/javascript">executeEL = function() {return PrimeFaces.ab({s:"j_idt85:j_idt92",f:"j_idt85",onco:function(xhr,status,args,data){hideMessageProcess();;},pa:arguments[0]});}</script><script id="j_idt85:j_idt93" type="text/javascript">executeELAndReload = function() {return PrimeFaces.ab({s:"j_idt85:j_idt93",f:"j_idt85",onco:function(xhr,status,args,data){location.reload();;},pa:arguments[0]});}</script>
+
+
+</form>
+                    </ul>
+                </div></nav><main id="wrapper" style="display: block; min-height: 917.25px;">
+        <style type="text/css">
+            td.ui-grid-col-2 > div, td.ui-grid-col-3 > div, td.ui-grid-col-8 > div {
+                margin-right: 5px;
+            }
+        </style>
+<form id="frmRelatorio" name="frmRelatorio" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="frmRelatorio" value="frmRelatorio">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:3" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+
+    <div id="frmRelatorio:j_idt97" class="jarch__panel-title">
+        <div class="panel-title small-header transition animated fadeInDown">
+            <div class="hpanel hnavyblue">
+                <div class="panel-body" style="width: 100%; display: flex; flex-direction: row; justify-content: space-between">
+                    <div style="width: 80%">
+                        <a class="small-header-action" href="#"></a>
+                        <h2 class="font-light m-b-xs">
+                            Relatório Livro Fiscal
+                        </h2>
+
+                        <small>
+                            Emitir Relatório Livro Fiscal
+                        </small>
+                    </div>
+                    <div style="width: 20%">
+                            <div class="dropdown help" style="width: 100%; text-align: right">
+                                <a href="#" onclick="PF('widgetVarHelp').show()">
+                                    <label id="help">
+                                        PRECISA DE AJUDA? CLIQUE AQUI
+                                    </label>
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="frmRelatorio:j_idt101" class="jarch__panelfilterport content p-0 mr-2" data-effect="fadeIn">
+        <div class="content" data-effect="fadeIn">
+            <div class="row">
+                <div class="col-lg-12 animated-panel fadeIn"><div id="frmRelatorio:j_idt101:panelMaster" class="ui-outputpanel ui-widget hpanel hblue">
+                        <div class="panel-heading hbuilt">
+
+                            <div class="panel-tools">
+                                <a class="showhide">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+
+                            Emitir Relatório Livro Fiscal
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="table-responsive"><div class="messageheader ">
+        <script type="application/javascript">
+
+            $('.toast').hide(function () {
+                $(this).remove();
+            });
+
+            // if (configToastr != undefined) {
+            //     configToastr();
+            // }
+
+            var message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.info(message);
+            }
+
+            message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.warning(message);
+            }
+
+            message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.error(message);
+            }
+
+            message = ' ';
+
+            if (message.trim() != '') {
+                try {
+                    hideMessageProcess();
+                } catch (e) {
+
+                }
+                toastr.success(message);
+            }
+        </script></div><table id="frmRelatorio:j_idt101:idPanelPeriodo" style="width: 100%">
+<tbody>
+<tr>
+<td class="ui-grid-col-3">
+    <style type="text/css">
+        .jarch__filterperiod {
+            min-height: 160px;
+        }
+
+        .jarch__filterperiod .ui-panel .ui-panel-content {
+            padding: 0;
+        }
+
+        .jarch__filterperiod h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt104" class="jarch__filterperiod shadow-5"><div id="frmRelatorio:j_idt101:j_idt104:j_idt106" class="ui-panel ui-widget ui-widget-content ui-corner-all" style="; padding: 0; border: 0" data-widget="widget_frmRelatorio_j_idt101_j_idt104_j_idt106" role="region"><div id="frmRelatorio:j_idt101:j_idt104:j_idt106_content" class="ui-panel-content ui-widget-content">
+            <div class="header-line " style="width: 100%; height: 65px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: #FFA500  !important">
+                <h3>
+                    <i class="fa fa-calendar-o"></i>
+                    Competência
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt104:j_idt108" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt104:j_idt109" class="ui-panelgrid ui-widget" style="text-align:center; width:100%; margin-bottom: 5px"><div id="frmRelatorio:j_idt101:j_idt104:j_idt109_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-6"><label id="frmRelatorio:j_idt101:j_idt104:j_idt111" class="ui-outputlabel ui-widget ui-required"><span class="ui-outputlabel-label">Inicio</span><span class="ui-outputlabel-rfi">*</span></label>
+                    <br><span id="frmRelatorio:j_idt101:j_idt104:idStart" class="p-datepicker ui-calendar ui-trigger-calendar ui-inputwrapper-focus"><input id="frmRelatorio:j_idt101:j_idt104:idStart_input" name="frmRelatorio:j_idt101:j_idt104:idStart_input" type="text" class="ui-inputfield ui-widget ui-state-default ui-corner-all hasDatepicker ui-state-focus" role="combobox" aria-autocomplete="none" aria-haspopup="dialog" aria-expanded="false" aria-controls="frmRelatorio:j_idt101:j_idt104:idStart_panel" size="5" aria-required="true" data-p-label="Inicio" data-p-required="true" inputmode="numeric"><button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="frmRelatorio:j_idt101:j_idt104:idStart_panel" class="ui-datepicker-trigger ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" tabindex="0" aria-label="Choose Date"><span class="ui-button-icon-left ui-icon ui-icon-calendar"></span><span class="ui-button-text">ui-button</span></button></span></div><div class="ui-panelgrid-cell ui-g-12 ui-md-6"><label id="frmRelatorio:j_idt101:j_idt104:j_idt114" class="ui-outputlabel ui-widget ui-required"><span class="ui-outputlabel-label">Fim</span><span class="ui-outputlabel-rfi">*</span></label>
+                    <br><span id="frmRelatorio:j_idt101:j_idt104:idEnd" class="p-datepicker ui-calendar ui-trigger-calendar"><input id="frmRelatorio:j_idt101:j_idt104:idEnd_input" name="frmRelatorio:j_idt101:j_idt104:idEnd_input" type="text" class="ui-inputfield ui-widget ui-state-default ui-corner-all hasDatepicker" role="combobox" aria-autocomplete="none" aria-haspopup="dialog" aria-expanded="false" aria-controls="frmRelatorio:j_idt101:j_idt104:idEnd_panel" size="5" aria-required="true" data-p-label="Fim" data-p-required="true" inputmode="numeric"><button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="frmRelatorio:j_idt101:j_idt104:idEnd_panel" class="ui-datepicker-trigger ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" tabindex="0" aria-label="Choose Date"><span class="ui-button-icon-left ui-icon ui-icon-calendar"></span><span class="ui-button-text">ui-button</span></button></span></div></div></div></div></div></div>
+    </div></td>
+<td class="ui-grid-col-3">
+    <style type="text/css">
+        .jarch__filtergroup {
+            min-height: 160px;
+        }
+
+        .jarch__filtergroup .ui-panel .ui-panel-content {
+            padding: 0;
+            border: 0;
+        }
+
+        .jarch__filtergroup h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt117" class="jarch__filtergroup  shadow-5"><div id="frmRelatorio:j_idt101:j_idt117:j_idt119" class="ui-panel ui-widget ui-widget-content ui-corner-all " style="padding: 0; border: 0" data-widget="widget_frmRelatorio_j_idt101_j_idt117_j_idt119" role="region"><div id="frmRelatorio:j_idt101:j_idt117:j_idt119_content" class="ui-panel-content ui-widget-content">
+            <div class="header-line " style="width: 100%; height: 65px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: #03BB85">
+                <h3>
+                    <i class="fa fa-list-ol"></i>
+                    Livro Fiscal
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt117:j_idt121" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt117:j_idt122" class="ui-panelgrid ui-widget" style="width:90%; margin-left: 10px; margin-bottom: 5px"><div id="frmRelatorio:j_idt101:j_idt117:j_idt122_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><label id="frmRelatorio:j_idt101:j_idt117:j_idt124" class="ui-outputlabel ui-widget" for="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_label"><span class="ui-outputlabel-label">Agrupamento</span></label>
+                    <br><div id="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all " style="width:90%"><div class="ui-helper-hidden-accessible"><select id="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_input" name="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_input" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Agrupamento" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt117:idSelectOneMenu&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt117:idSelectOneMenu&quot;,u:&quot;frmRelatorio:j_idt101:j_idt117:idSelectOneMenu&quot;});" data-p-label="Agrupamento" data-p-hl="onemenu"><option value="SERVICOS_PRESTADOS" selected="selected" data-escape="true">Serviços Prestados</option><option value="SERVICOS_TOMADOS" data-escape="true">Serviços Tomados</option></select></div><span id="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_panel" aria-label="Serviços Prestados" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="frmRelatorio:j_idt101:j_idt117:j_idt124">Serviços Prestados</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div></div></div></div></div></div></div></div>
+    </div></td>
+<td class="ui-grid-col-3">
+    <style type="text/css">
+        .jarch__filtergeneral {
+            min-height: 160px;
+        }
+
+        .jarch__filtergeneral .ui-panel .ui-panel-content {
+            padding: 0;
+            border: 0;
+        }
+
+        .jarch__filtergeneral h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt128" class="jarch__filtergeneral  shadow-5"><div id="frmRelatorio:j_idt101:j_idt128:j_idt143" class="ui-panel ui-widget ui-widget-content ui-corner-all " style="padding: 0; border: 0" data-widget="widget_frmRelatorio_j_idt101_j_idt128_j_idt143" role="region"><div id="frmRelatorio:j_idt101:j_idt128:j_idt143_content" class="ui-panel-content ui-widget-content">
+            <div class="header-line " style="width: 100%; height: 65px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: #9400D3">
+                <h3>
+                    <i class="fa fa-list-ol"></i>
+                    Situação
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt128:j_idt145" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt128:j_idt146" class="ui-panelgrid ui-widget" style="width:100%; padding: 0; margin-bottom: 5px"><div id="frmRelatorio:j_idt101:j_idt128:j_idt146_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><table style="width:100%;">
+<tbody>
+<tr>
+<td><label id="frmRelatorio:j_idt101:j_idt128:j_idt131" class="ui-outputlabel ui-widget"><span class="ui-outputlabel-label">Normal</span></label>
+                                <br><div id="frmRelatorio:j_idt101:j_idt128:j_idt133" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt128:j_idt133_input" name="frmRelatorio:j_idt101:j_idt128:j_idt133_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div></td>
+<td><label id="frmRelatorio:j_idt101:j_idt128:j_idt135" class="ui-outputlabel ui-widget"><span class="ui-outputlabel-label">Cancelada</span></label>
+                                <br><div id="frmRelatorio:j_idt101:j_idt128:j_idt137" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt128:j_idt137_input" name="frmRelatorio:j_idt101:j_idt128:j_idt137_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div></td>
+<td><label id="frmRelatorio:j_idt101:j_idt128:j_idt139" class="ui-outputlabel ui-widget"><span class="ui-outputlabel-label">Substituida</span></label>
+                                <br><div id="frmRelatorio:j_idt101:j_idt128:j_idt141" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt128:j_idt141_input" name="frmRelatorio:j_idt101:j_idt128:j_idt141_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+    </div></td>
+<td class="ui-grid-col-3">
+    <style type="text/css">
+        .jarch__filtergroup {
+            min-height: 160px;
+        }
+
+        .jarch__filtergroup .ui-panel .ui-panel-content {
+            padding: 0;
+            border: 0;
+        }
+
+        .jarch__filtergroup h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt148" class="jarch__filtergroup width: 100% shadow-5"><div id="frmRelatorio:j_idt101:j_idt148:j_idt150" class="ui-panel ui-widget ui-widget-content ui-corner-all width: 100%" style="padding: 0; border: 0" data-widget="widget_frmRelatorio_j_idt101_j_idt148_j_idt150" role="region"><div id="frmRelatorio:j_idt101:j_idt148:j_idt150_content" class="ui-panel-content ui-widget-content">
+            <div class="header-line " style="width: 100%; height: 65px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: #03BB85">
+                <h3>
+                    <i class="fa fa-list-ol"></i>
+                    Tipo Recolhimento
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt148:j_idt152" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt148:j_idt153" class="ui-panelgrid ui-widget" style="width:90%; margin-left: 10px; margin-bottom: 5px"><div id="frmRelatorio:j_idt101:j_idt148:j_idt153_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><label id="frmRelatorio:j_idt101:j_idt148:j_idt155" class="ui-outputlabel ui-widget" for="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_label"><span class="ui-outputlabel-label">Recolhimento</span></label>
+                    <br><div id="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all " style="width:90%"><div class="ui-helper-hidden-accessible"><select id="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_input" name="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_input" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Recolhimento" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt148:idSelectOneMenu&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt148:idSelectOneMenu&quot;,u:&quot;frmRelatorio:j_idt101:j_idt148:idSelectOneMenu&quot;});" data-p-label="Recolhimento" data-p-hl="onemenu"><option value="RPP" data-escape="true">Recolher pelo Prestador</option><option value="RNF" data-escape="true">Retido na Fonte</option><option value="NAP" data-escape="true">Não se Aplica</option><option value="TDS" selected="selected" data-escape="true">Todos</option></select></div><span id="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_panel" aria-label="Todos" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="frmRelatorio:j_idt101:j_idt148:j_idt155">Todos</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div></div></div></div></div></div></div></div>
+    </div></td>
+</tr>
+</tbody>
+</table>
+<svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt159" width="1" height="10"></svg><table style="width:100%">
+<tbody>
+<tr>
+<td class="ui-grid-col-8">
+    <style type="text/css">
+        .jarch__filtergeneral {
+            min-height: 160px;
+        }
+
+        .jarch__filtergeneral .ui-panel .ui-panel-content {
+            padding: 0;
+            border: 0;
+        }
+
+        .jarch__filtergeneral h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt161" class="jarch__filtergeneral  shadow-5"><div id="frmRelatorio:j_idt101:j_idt161:j_idt179" class="ui-panel ui-widget ui-widget-content ui-corner-all " style="padding: 0; border: 0" data-widget="widget_frmRelatorio_j_idt101_j_idt161_j_idt179" role="region"><div id="frmRelatorio:j_idt101:j_idt161:j_idt179_content" class="ui-panel-content ui-widget-content">
+            <div class="header-line " style="width: 100%; height: 65px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: #6a5a8c">
+                <h3>
+                    <i class="fa fa-list-ol"></i>
+                    Exigibilidade
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt161:j_idt181" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt161:j_idt182" class="ui-panelgrid ui-widget" style="width:100%; padding: 0; margin-bottom: 5px"><div id="frmRelatorio:j_idt101:j_idt161:j_idt182_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><table style="width:100%;">
+<tbody>
+<tr>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idExigivel" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idExigivel_input" name="frmRelatorio:j_idt101:j_idt161:idExigivel_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idExigivel&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idExigivel&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idExigivel">
+                                    Exigível
+                                </label></td>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idNaoIncidente" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idNaoIncidente_input" name="frmRelatorio:j_idt101:j_idt161:idNaoIncidente_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idNaoIncidente&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idNaoIncidente&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idNaoIncidente">
+                                    Não Incidente
+                                </label></td>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idIsencao" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idIsencao_input" name="frmRelatorio:j_idt101:j_idt161:idIsencao_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idIsencao&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idIsencao&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idIsencao">
+                                    Isenção
+                                </label></td>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idExportacao" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idExportacao_input" name="frmRelatorio:j_idt101:j_idt161:idExportacao_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idExportacao&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idExportacao&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idExportacao">
+                                    Exportação
+                                </label></td>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idImunidade" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idImunidade_input" name="frmRelatorio:j_idt101:j_idt161:idImunidade_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idImunidade&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idImunidade&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idImunidade">
+                                    Imunidade
+                                </label></td>
+</tr>
+</tbody>
+</table>
+</div></div><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><table style="width:100%;">
+<tbody>
+<tr>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaDecisaoJudicial" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaDecisaoJudicial_input" name="frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaDecisaoJudicial_input" type="checkbox" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaDecisaoJudicial&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaDecisaoJudicial&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idExigibilidadeSuspensaDecisaoJudicial">
+                                    Suspensa Por Decisão Judicial
+                                </label></td>
+<td><div id="frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaProcessoAdministrativo" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaProcessoAdministrativo_input" name="frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaProcessoAdministrativo_input" type="checkbox" data-p-label="asas" data-p-con="javax.faces.Boolean" data-p-hl="booleanchkbox" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaProcessoAdministrativo&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt161:idExigibilidadeSuspensaProcessoAdministrativo&quot;});"></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div>
+                                <label for="idExigibilidadeSuspensaProcessoAdministrativo">
+                                    Suspensa Por Processo Administrativo
+                                </label></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div>
+    </div></td>
+<td class="ui-grid-col-2">
+    <style type="text/css">
+        .jarch__filterselect {
+            min-height: 160px;
+        }
+
+        .jarch__filterselect .ui-panel .ui-panel-content {
+            padding: 0;
+        }
+
+        .jarch__filterselect h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt184" class="jarch__filterselect shadow-5">
+        <div style="height: 150px; padding: 0 0 10px 0">
+            <div class="header-line " style="width: 100%; height: 75px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: #03BB85">
+                <h3>
+                    <i class="fa fa-list-ol"></i>
+                    Atividade
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt184:j_idt187" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt184:j_idt188" class="ui-panelgrid ui-widget" style="text-align:center; width:100%; margin-bottom: 15px"><div id="frmRelatorio:j_idt101:j_idt184:j_idt188_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><a id="frmRelatorio:j_idt101:j_idt184:j_idt189" href="#" class="ui-commandlink ui-widget btn btn-info btn-circle" onclick="PF('widgetVarAtividade').show();PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt184:j_idt189&quot;,f:&quot;frmRelatorio&quot;});return false;" style="">
+                    <i class="fa fa-list"></i></a></div></div></div></div>
+        </div>
+    </div></td>
+<td class="ui-grid-col-2">
+    <style type="text/css">
+        .jarch__filtergroup {
+            min-height: 160px;
+        }
+
+        .jarch__filtergroup .ui-panel .ui-panel-content {
+            padding: 0;
+            border: 0;
+        }
+
+        .jarch__filtergroup h3 {
+            font-family: "Calibri";
+            font-weight: bold;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt192" class="jarch__filtergroup  shadow-5"><div id="frmRelatorio:j_idt101:j_idt192:j_idt194" class="ui-panel ui-widget ui-widget-content ui-corner-all " style="padding: 0; border: 0" data-widget="widget_frmRelatorio_j_idt101_j_idt192_j_idt194" role="region"><div id="frmRelatorio:j_idt101:j_idt192:j_idt194_content" class="ui-panel-content ui-widget-content">
+            <div class="header-line " style="width: 100%; height: 65px; text-align: left; color: white; padding-top: 10px; padding-left: 10px; background-color: green">
+                <h3>
+                    <i class="fa fa-file-pdf-o"></i>
+                    Saída
+                </h3>
+            </div><svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt192:j_idt196" width="1" height="5"></svg><div id="frmRelatorio:j_idt101:j_idt192:j_idt197" class="ui-panelgrid ui-widget" style="width:90%; margin-left: 10px; margin-bottom: 5px"><div id="frmRelatorio:j_idt101:j_idt192:j_idt197_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><label id="frmRelatorio:j_idt101:j_idt192:j_idt199" class="ui-outputlabel ui-widget" for="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_label"><span class="ui-outputlabel-label">Saída</span></label>
+                    <br><div id="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all " style="width:90%"><div class="ui-helper-hidden-accessible"><select id="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_input" name="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_input" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Saída" onchange="PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt192:idSelectOneMenu&quot;,e:&quot;change&quot;,f:&quot;frmRelatorio&quot;,p:&quot;frmRelatorio:j_idt101:j_idt192:idSelectOneMenu&quot;,u:&quot;frmRelatorio:j_idt101:j_idt192:idSelectOneMenu&quot;});" data-p-label="Saída" data-p-hl="onemenu"><option value="PDF" selected="selected" data-escape="true">PDF</option><option value="EXCEL" data-escape="true">EXCEL</option></select></div><span id="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_panel" aria-label="PDF" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="frmRelatorio:j_idt101:j_idt192:j_idt199">PDF</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div></div></div></div></div></div></div></div>
+    </div></td>
+</tr>
+</tbody>
+</table>
+<svg xmlns="http://www.w3.org/2000/svg" id="frmRelatorio:j_idt101:j_idt203" width="1" height="10"></svg><div id="frmRelatorio:j_idt101:pnlPanelSelecionados" class="ui-panelgrid ui-widget" style="width: 100%"><div id="frmRelatorio:j_idt101:pnlPanelSelecionados_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-grid-row"><div class="ui-panelgrid-cell ui-grid-col-6">
+    <style type="text/css">
+        .jarch__panelselected-datalist > tbody > tr > td {
+            width: 100% !important;
+        }
+
+        .jarch__panelselected-datalist .ui-chkbox {
+            margin-right: 5px;
+        }
+    </style>
+
+    <div id="frmRelatorio:j_idt101:j_idt204" class="shadow-5">
+    </div></div></div></div></div><label id="frmRelatorio:j_idt101:status" class="ui-outputlabel ui-widget progressbar"><span class="ui-outputlabel-label"></span></label><div id="frmRelatorio:j_idt101:progressBar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate" style="width: 100%" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="100"><div class="ui-progressbar-value ui-widget-header ui-corner-all"></div><div class="ui-progressbar-label" style="display:block">0%</div></div>
+                            </div>
+                        </div>
+
+                        <div class="panel-footer" style="padding: 5px">
+                            <table class="ui-panelgrid ui-widget" style="width: 100%;">
+                                <tbody>
+                                <tr>
+                                    <td style="text-align: left"><a id="frmRelatorio:j_idt101:j_idt217" href="#" class="ui-commandlink ui-widget btn btn-sm btn-outline btn-warning pull-left" onclick="showMessageProcess(true);PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt217&quot;,f:&quot;frmRelatorio&quot;,u:&quot;frmRelatorio&quot;,onco:function(xhr,status,args,data){hideMessageProcess();}});return false;" style="min-width: 100px">
+
+                        <em class="fa fa-eraser"></em> Limpar
+                    </a>
+                                    </td>
+                                    <td style="text-align: center">
+                                    </td>
+
+                                    <td style="text-align: right"><a id="frmRelatorio:j_idt101:j_idt219" href="#" class="ui-commandlink ui-widget btn btn-info btn-outline btn-sm" onclick="showMessageProcess(true);;PrimeFaces.ab({s:&quot;frmRelatorio:j_idt101:j_idt219&quot;,f:&quot;frmRelatorio&quot;,u:&quot;frmRelatorio,dialogConfirmacaoRelacaoNotasAssincrono&quot;,onco:function(xhr,status,args,data){hideMessageProcess();;}});return false;" style="min-width: 100px">
+                        <i class="fa fa-print"></i> Download
+                    </a><a id="frmRelatorio:j_idt101:btnRelatorioXls" href="#" class="ui-commandlink ui-widget gerar-relatorio" onclick="PrimeFaces.monitorDownload(showMessageDownload, hideMessageDownload);;PrimeFaces.addSubmitParam('frmRelatorio',{'frmRelatorio:j_idt101:btnRelatorioXls':'frmRelatorio:j_idt101:btnRelatorioXls'}).submit('frmRelatorio');return false;" style="min-width: 100px; visibility: hidden;"></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form></main><footer id="footer" style="display: block"><div id="j_idt231" class="ui-panelgrid ui-widget" style="width: 100%"><div id="j_idt231_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-grid-row"><div class="ui-panelgrid-cell ui-grid-col-4"><label style="margin-bottom: 0; font-weight: normal" class="name-company pull-left">DSF / Desenvolvimento de Sistemas Fiscais</label></div><div class="ui-panelgrid-cell ui-grid-col-4"><label style="margin-bottom: 0; font-weight: normal; width: 100%; text-align: center" class="description-system pull-left">Nota Fiscal de Serviço Eletrônica / 2026.02.27.1029 WEB02</label></div><div class="ui-panelgrid-cell ui-grid-col-4"><label style="margin-bottom: 0; font-weight: normal" class="all-rigths pull-right">Todos os Direitos Reservados</label></div></div></div></div><div id="j_idt235" style="width:64px;height:64px;position:fixed;left:5px;bottom:50px" class="jarch__ajaxstatus"><div id="j_idt235_start" style="display:none"><img id="j_idt236" src="/notafiscal/javax.faces.resource/loader.gif.jsf?ln=images" alt=""></div><div id="j_idt235_complete" style="display:none"></div></div></footer>
+        </div>
+<form id="j_idt239" name="j_idt239" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt239" value="j_idt239">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:4" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+
+    <div id="j_idt239:j_idt240"><div id="j_idt239:j_idt240:dialogSelect" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-hidden-container lookup-dialog ui-draggable" style="max-height: 90vh; display: none; width: 90vw; height: auto;" role="dialog" aria-describedby="j_idt239:j_idt240:dialogSelect_content" aria-hidden="true"><div class="ui-dialog-content ui-widget-content" id="j_idt239:j_idt240:dialogSelect_content" style="height: auto;">
+
+            <h3 class="lookup-dialog-header">
+                Atividade
+            </h3><div id="j_idt239:j_idt240:j_idt243" class="ui-scrollpanel ui-scrollpanel-native ui-widget ui-widget-content ui-corner-all" style="width:100%; max-height: 80vh; border: 0">
+            <style>
+                .ui-tabs-header > a > em {
+                    margin-right: 5px;
+                }
+            </style>
+
+    <div id="j_idt239:j_idt240:j_idt244"><span id="j_idt239:j_idt240:j_idt244:panelGroupFields">
+            <div class="panel-body" style="padding: 0">
+                
+                <div class="table-responsive filter-search">
+
+                            <div style="magin: 0; padding: 0;">
+                            </div><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch" class="ui-tabs ui-widget ui-widget-content ui-corner-all ui-hidden-container ui-tabs-top" style="border: 0px !important; " data-widget="widget_j_idt239_j_idt240_j_idt244_tabViewFilterSearch"><ul class="nav nav-pills" role="tablist"><li class="ui-tabs-header ui-state-default ui-tabs-selected ui-state-active ui-corner-top" role="presentation" data-index="0" style="" data-test="tabFilterSearchlabel.atividade"><a id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:tabFilterSearch_header" href="#j_idt239:j_idt240:j_idt244:tabViewFilterSearch:tabFilterSearch" role="tab" aria-expanded="true" aria-selected="true" data-index="0" aria-controls="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:tabFilterSearch" tabindex="0"><em class="fa fa-list-alt"> </em>Atividade</a></li><li class="ui-tabs-header ui-state-default ui-corner-top" role="presentation" data-index="1" style="" data-test="tabFilterSearchlabel.servico"><a id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt270_header" href="#j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt270" role="tab" aria-expanded="false" aria-selected="false" data-index="1" aria-controls="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt270" tabindex="0"><em class="fa fa-list-alt"> </em>Serviço</a></li></ul><div class="ui-tabs-panels"><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:tabFilterSearch" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-hidden="false" aria-labelledby="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:tabFilterSearch_header" data-index="0">
+
+                                            
+                                            <div class="row show-grid">
+                                            </div>
+
+                                            
+                                            <div class="row show-grid">
+
+                                                    <div class="col-md-3" style="margin: 2px 0 2px 0; padding: 2px 10px"><label id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:outputLabelFielSearch" class="ui-outputlabel ui-widget" style="padding-right: 10px; padding-top: 5px"><span class="ui-outputlabel-label">CNAE</span></label><table class="filtersearch__panelgrid-showcondition filtersearch__panelgrid-codigoCnae">
+<tbody>
+<tr>
+<td class="filtersearch__panelgrid-condition"><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt258" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all filtersearch__selectonemenu filtersearch__selectonemenu-starts_with" data-test="CNAE condition"><div class="ui-helper-hidden-accessible"><select id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt258_input" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt258_input" tabindex="-1" autocomplete="off" aria-hidden="true" data-p-hl="onemenu"><option value="STARTS_WITH" selected="selected" data-escape="true">Inicia</option><option value="CONTAINS" data-escape="true">Contém</option><option value="NOT_CONTAINS" data-escape="true">Não Contém</option><option value="ENDS_WITH" data-escape="true">Termina</option></select></div><span id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt258_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt258_panel" role="combobox" aria-haspopup="listbox" aria-expanded="false" data-test="CNAE condition" aria-label="Inicia">Inicia</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div></div></td>
+<td class="filtersearch__panelgrid-value"><input id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchcodigoCnae" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchcodigoCnae" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all filtersearch_field filtersearch__inputtext filtersearch__inputtext-codigocnae" data-tooltip="" data-test="CNAE"></td>
+</tr>
+</tbody>
+</table>
+
+                                                    </div>
+
+                                                    <div class="col-md-9" style="margin: 2px 0 2px 0; padding: 2px 10px"><label id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt262" class="ui-outputlabel ui-widget" style="padding-right: 10px; padding-top: 5px"><span class="ui-outputlabel-label">Descrição Atividade</span></label><table class="filtersearch__panelgrid-showcondition filtersearch__panelgrid-nomeCompleto">
+<tbody>
+<tr>
+<td class="filtersearch__panelgrid-condition"><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt265" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all filtersearch__selectonemenu filtersearch__selectonemenu-contains" data-test="Descrição Atividade condition"><div class="ui-helper-hidden-accessible"><select id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt265_input" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt265_input" tabindex="-1" autocomplete="off" aria-hidden="true" data-p-hl="onemenu"><option value="STARTS_WITH" data-escape="true">Inicia</option><option value="CONTAINS" selected="selected" data-escape="true">Contém</option><option value="NOT_CONTAINS" data-escape="true">Não Contém</option><option value="ENDS_WITH" data-escape="true">Termina</option></select></div><span id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt265_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt265_panel" role="combobox" aria-haspopup="listbox" aria-expanded="false" data-test="Descrição Atividade condition" aria-label="Contém">Contém</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div></div></td>
+<td class="filtersearch__panelgrid-value"><input id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchnomeCompleto" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchnomeCompleto" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all filtersearch_field filtersearch__inputtext filtersearch__inputtext-nomecompleto" data-tooltip="" data-test="Descrição Atividade"></td>
+</tr>
+</tbody>
+</table>
+
+                                                    </div>
+                                            </div></div><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt270" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-helper-hidden" role="tabpanel" aria-hidden="true" aria-labelledby="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt270_header" data-index="1" tabindex="-1">
+
+                                            
+                                            <div class="row show-grid">
+                                            </div>
+
+                                            
+                                            <div class="row show-grid">
+
+                                                    <div class="col-md-3" style="margin: 2px 0 2px 0; padding: 2px 10px"><label id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt276" class="ui-outputlabel ui-widget" style="padding-right: 10px; padding-top: 5px"><span class="ui-outputlabel-label">Código Serviço</span></label><table class="filtersearch__panelgrid-showcondition filtersearch__panelgrid-codigoServico">
+<tbody>
+<tr>
+<td class="filtersearch__panelgrid-condition"><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt279" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all ui-state-disabled filtersearch__selectonemenu filtersearch__selectonemenu-equal" data-test="Código Serviço condition"><div class="ui-helper-hidden-accessible"><select id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt279_input" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt279_input" tabindex="-1" autocomplete="off" aria-hidden="true" disabled="disabled" data-p-hl="onemenu"><option value="LARGER" data-escape="true">Maior</option><option value="LESS" data-escape="true">Menor</option><option value="EQUAL" selected="selected" data-escape="true">Igual</option><option value="DIFFERENT" data-escape="true">Diferente</option><option value="LARGER_EQUAL" data-escape="true">Igual/Maior</option><option value="LESS_EQUAL" data-escape="true">Igual/Menor</option></select></div><span id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt279_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt279_panel" role="combobox" aria-haspopup="listbox" aria-expanded="false" disabled="disabled" data-test="Código Serviço condition" aria-label="Igual">Igual</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt279_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1" style="position: fixed;"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div></div></td>
+<td class="filtersearch__panelgrid-value"><input id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchcodigoServico" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchcodigoServico" type="text" style="width: 100%" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all filtersearch_field filtersearch__inputtext filtersearch__inputtext-codigoservico" onkeyup="if (false) { $(this).val($(this).val().replace(/[^0-9]/g, '')); }" data-tooltip="" data-test="Código Serviço"></td>
+</tr>
+</tbody>
+</table>
+
+                                                    </div>
+
+                                                    <div class="col-md-9" style="margin: 2px 0 2px 0; padding: 2px 10px"><label id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt283" class="ui-outputlabel ui-widget" style="padding-right: 10px; padding-top: 5px"><span class="ui-outputlabel-label">Descrição Serviço</span></label><table class="filtersearch__panelgrid-showcondition filtersearch__panelgrid-descricaoServico">
+<tbody>
+<tr>
+<td class="filtersearch__panelgrid-condition"><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt286" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all ui-state-disabled filtersearch__selectonemenu filtersearch__selectonemenu-contains" data-test="Descrição Serviço condition"><div class="ui-helper-hidden-accessible"><select id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt286_input" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt286_input" tabindex="-1" autocomplete="off" aria-hidden="true" disabled="disabled" data-p-hl="onemenu"><option value="STARTS_WITH" data-escape="true">Inicia</option><option value="CONTAINS" selected="selected" data-escape="true">Contém</option><option value="NOT_CONTAINS" data-escape="true">Não Contém</option><option value="ENDS_WITH" data-escape="true">Termina</option></select></div><span id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt286_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all" tabindex="0" aria-controls="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt286_panel" role="combobox" aria-haspopup="listbox" aria-expanded="false" disabled="disabled" data-test="Descrição Serviço condition" aria-label="Contém">Contém</span><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt286_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1" style="position: fixed;"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div></div></td>
+<td class="filtersearch__panelgrid-value"><input id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchdescricaoServico" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:filterSearchdescricaoServico" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all filtersearch_field filtersearch__inputtext filtersearch__inputtext-descricaoservico" data-tooltip="" data-test="Descrição Serviço"></td>
+</tr>
+</tbody>
+</table>
+
+                                                    </div>
+                                            </div></div></div><input id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch_activeIndex" name="j_idt239:j_idt240:j_idt244:tabViewFilterSearch_activeIndex" type="hidden" autocomplete="off" value="0"></div>
+
+                            <div class="col-md-12" style="magin: 0; padding: 0;">
+                            </div>
+                </div>
+            </div></span>
+
+        <div class="panel-footer" style="padding: 5px">
+            <table class="ui-panelgrid ui-widget" style="width: 100%;">
+                <tbody>
+                <tr>
+                    <td style="text-align:center"><a id="j_idt239:j_idt240:j_idt244:j_idt296:idCommandLink" href="#" class="ui-commandlink ui-widget btn btn-warning2 btn-outline btn-sm filtersearch__button-clean" onclick="showMessageProcess(true);PrimeFaces.ab({s:&quot;j_idt239:j_idt240:j_idt244:j_idt296:idCommandLink&quot;,f:&quot;j_idt239&quot;,p:&quot;j_idt239:j_idt240:j_idt244&quot;,u:&quot;j_idt239:j_idt240:j_idt244:panelGroupFields,@(.dialogselect-datatable),@(.dialogselect-panelselecionado)&quot;,rv:true,onco:function(xhr,status,args,data){hideMessageProcess();}});return false;" style="width: 100px; float: left">
+        <i class="fa fa-eraser fa-1x"></i>
+        Limpar
+
+        </a>
+                    </td>
+                    <td style="text-align:center"><a id="j_idt239:j_idt240:j_idt244:j_idt299:j_idt300" href="#" class="ui-commandlink ui-widget btn btn-info btn-sm filtersearch__button-search" onclick="showMessageProcess(true);PrimeFaces.ab({s:&quot;j_idt239:j_idt240:j_idt244:j_idt299:j_idt300&quot;,f:&quot;j_idt239&quot;,p:&quot;j_idt239:j_idt240:j_idt244&quot;,u:&quot;@(.dialogselect-datatable),@(.dialogselect-panelselecionado),@(.base-messageheader),@(.filtersearch__panelgrid-hidecondition),@(.filtersearch_field)&quot;,onco:function(xhr,status,args,data){hideMessageProcess();}});return false;" style="width: 100px; float: right">
+        <i class="fa fa-search fa-1x" style="transform: none"></i>
+        Pesquisar
+    </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><svg xmlns="http://www.w3.org/2000/svg" id="j_idt239:j_idt240:j_idt303" width="1" height="10"></svg><div id="j_idt239:j_idt240:dataTableSelect" class="ui-datatable ui-widget ui-datatable-scrollable dialogselect-datatable" style="min-height: 200px"><div class="ui-widget-header ui-datatable-scrollable-header"><div class="ui-datatable-scrollable-header-box"><table role="grid"><thead id="j_idt239:j_idt240:dataTableSelect_head"><tr><th id="j_idt239:j_idt240:dataTableSelect:selectAllRows" class="ui-state-default ui-selection-column" scope="col" style="width:30px;text-align:center"><span class="ui-column-title"></span><div class="ui-chkbox ui-chkbox-all ui-widget"><div id="j_idt239:j_idt240:dataTableSelect_head_checkbox" role="checkbox" tabindex="0" aria-checked="false" class="ui-chkbox-box ui-widget ui-corner-all ui-state-default ui-state-disabled" aria-label="All items unselected"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div></th><th id="j_idt239:j_idt240:dataTableSelect:j_idt304:0" class="ui-state-default" aria-label="CNAE" scope="col" style="text-align: left; width: 100px"><span class="ui-column-title">CNAE</span></th><th id="j_idt239:j_idt240:dataTableSelect:j_idt304:1" class="ui-state-default" aria-label="Descrição Atividade" scope="col" style="text-align: left; width: 500px"><span class="ui-column-title">Descrição Atividade</span></th></tr></thead></table></div></div><div class="ui-datatable-scrollable-body" tabindex="-1" style="max-height:200px"><table role="grid"><tbody id="j_idt239:j_idt240:dataTableSelect_data" class="ui-datatable-data ui-widget-content" tabindex="0"><tr class="ui-widget-content ui-datatable-empty-message"><td colspan="3">Utilize os filtros disponíveis e clique em 'Pesquisar' para encontrar registros.</td></tr></tbody></table></div><div class="ui-widget-header ui-datatable-scrollable-footer"><div class="ui-datatable-scrollable-footer-box"><table role="grid"></table></div></div><input id="j_idt239:j_idt240:dataTableSelect_selection" name="j_idt239:j_idt240:dataTableSelect_selection" type="hidden" autocomplete="off" value=""><input id="j_idt239:j_idt240:dataTableSelect_scrollState" name="j_idt239:j_idt240:dataTableSelect_scrollState" type="hidden" autocomplete="off" value="0,0"></div>
+
+                <div class="modal-footer"><a id="j_idt239:j_idt240:j_idt312:j_idt313" href="#" class="ui-commandlink ui-widget btn btn-warning btn-outline btn-sm " onclick=";PrimeFaces.ab({s:&quot;j_idt239:j_idt240:j_idt312:j_idt313&quot;,f:&quot;j_idt239&quot;,p:&quot;j_idt239:j_idt240:j_idt312:j_idt313&quot;,u:&quot;frmRelatorio:j_idt101:pnlPanelSelecionados&quot;,onco:function(xhr,status,args,data){PF('widgetVarAtividade').hide();;}});return false;" style="float:center; min-width:100px;">
+        <i class="fa fa-times"></i>
+        Cancelar
+    </a><a id="j_idt239:j_idt240:commandLinkSave" href="#" class="ui-commandlink ui-widget btn btn-success btn-sm dialogselect__save" onclick="PrimeFaces.ab({s:&quot;j_idt239:j_idt240:commandLinkSave&quot;,f:&quot;j_idt239&quot;,p:&quot;j_idt239:j_idt240:commandLinkSave&quot;,u:&quot;frmRelatorio:j_idt101:pnlPanelSelecionados&quot;,onco:function(xhr,status,args,data){PF('widgetVarAtividade').hide();;}});return false;" style="min-width: 100px">
+                        <i class="fa fa-save"></i> Confirmar
+
+                        </a>
+                </div><svg xmlns="http://www.w3.org/2000/svg" id="j_idt239:j_idt240:j_idt317" width="1" height="10"></svg><div id="j_idt239:j_idt240:j_idt318" class="ui-panel ui-widget ui-widget-content ui-corner-all dialogselect-panelselecionado" data-widget="widget_j_idt239_j_idt240_j_idt318" role="region" aria-labelledby="j_idt239:j_idt240:j_idt318_header"><div id="j_idt239:j_idt240:j_idt318_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Selecionado - 0</span></div><div id="j_idt239:j_idt240:j_idt318_content" class="ui-panel-content ui-widget-content"><table style="width:100%;">
+<tbody>
+<tr>
+<td><label style="text-align:right; width:100%;">Quantidade </label></td>
+</tr>
+</tbody>
+</table>
+<div id="j_idt239:j_idt240:j_idt322" class="ui-panelgrid ui-widget jarch__panelselected-datalist" style="width:100%;"><div id="j_idt239:j_idt240:j_idt322_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-grid-row"><div class="ui-panelgrid-cell ui-grid-col-11"><div id="j_idt239:j_idt240:selectManyMenu" class="ui-selectmanymenu ui-inputfield ui-widget ui-widget-content ui-corner-all " style="text-align:left; width:100%; height:100px; padding: 0"><div class="ui-helper-hidden-accessible"><select id="j_idt239:j_idt240:selectManyMenu_input" name="j_idt239:j_idt240:selectManyMenu_input" multiple="multiple" size="2" data-p-hl="listbox"></select></div><div class="ui-selectlistbox-listcontainer" style="height:85px"><ul class="ui-selectlistbox-list" role="listbox" aria-multiselectable="true"></ul></div></div></div><div class="ui-panelgrid-cell ui-grid-col-1"><table style="text-align:center;">
+<tbody>
+<tr>
+<td>
+                            <br></td>
+</tr>
+<tr>
+<td><button id="j_idt239:j_idt240:j_idt326" name="j_idt239:j_idt240:j_idt326" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only panelselected-clear" onclick="PrimeFaces.ab({s:&quot;j_idt239:j_idt240:j_idt326&quot;,f:&quot;j_idt239&quot;,p:&quot;j_idt239:j_idt240:j_idt326&quot;,u:&quot;j_idt239:j_idt240:selectManyMenu,j_idt239:j_idt240:dataTableSelect&quot;});return false;" label="Limpar" type="submit"><span class="ui-button-icon-left ui-icon ui-c ui-icon-trash"></span><span class="ui-button-text ui-c">ui-button</span></button></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div></div></div></div></div>
+    </div>
+</form><div id="dialogConfirmacaoRelacaoNotasAssincrono" class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-shadow ui-hidden-container dialog-visualiza-pdf ui-draggable" style="display: none; width: 50%; height: auto;" role="dialog" aria-describedby="dialogConfirmacaoRelacaoNotasAssincrono_content" aria-hidden="true" aria-modal="true" aria-labelledby="dialogConfirmacaoRelacaoNotasAssincrono_title"><div class="ui-dialog-titlebar ui-widget-header ui-helper-clearfix ui-corner-top ui-draggable-handle"><span id="dialogConfirmacaoRelacaoNotasAssincrono_title" class="ui-dialog-title">Geração Modo Assíncrono</span><a href="#" class="ui-dialog-titlebar-icon ui-dialog-titlebar-close ui-corner-all" aria-label="Close" role="button"><span class="ui-icon ui-icon-closethick"></span></a></div><div class="ui-dialog-content ui-widget-content" id="dialogConfirmacaoRelacaoNotasAssincrono_content" style="height: auto;">
+
+            <h4 style="text-align: justify;">
+                Devido à quantidade de registros identificados, a geração do Livro Fiscal será executada em segundo plano. Ao término do processamento, o arquivo PDF ficará disponível para download no menu lateral Relatórios Assíncronos. Durante o processamento, o Sistema NFSe poderá ser utilizado normalmente. Caso necessário, o usuário poderá sair do sistema e retornar mais tarde para realizar o download do arquivo gerado.
+            </h4><hr id="j_idt329" class="ui-separator ui-state-default ui-corner-all"><div id="j_idt330" class="ui-panelgrid ui-widget" style="width:100%;"><div id="j_idt330_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-6"><div id="j_idt331" class="ui-panelgrid ui-widget" style="width:100%; text-align:left"><div id="j_idt331_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><a id="j_idt332:j_idt333" href="#" class="ui-commandlink ui-widget btn btn-warning btn-outline btn-sm " onclick="PF('widgetVarConfirmacaoRelacaoNotasAssincrono').hide();;PrimeFaces.ab({s:&quot;j_idt332:j_idt333&quot;,p:&quot;j_idt332:j_idt333&quot;,u:&quot;j_idt332:j_idt333&quot;,onco:function(xhr,status,args,data){;}});return false;" style="float:center; min-width:100px;">
+        <i class="fa fa-times"></i>
+        Cancelar
+    </a></div></div></div></div></div><div class="ui-panelgrid-cell ui-g-12 ui-md-6"><div id="j_idt335" class="ui-panelgrid ui-widget" style="width:100%; text-align:right"><div id="j_idt335_content" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"><div class="ui-g"><div class="ui-panelgrid-cell ui-g-12 ui-md-12"><a id="j_idt336:commandLink" href="#" class="ui-commandlink ui-widget btn btn-success btn-sm " onclick=";PrimeFaces.ab({s:&quot;j_idt336:commandLink&quot;,p:&quot;j_idt336:commandLink&quot;,u:&quot;j_idt336:commandLink&quot;,onst:function(cfg){;},oner:function(xhr,status,error){;},onco:function(xhr,status,args,data){PF('widgetVarConfirmacaoRelacaoNotasAssincrono').hide();;}});return false;" style="min-width:100px;">
+        <i class="fa fa-save"></i> Confirmar
+        </a></div></div></div></div></div></div></div></div></div></div><script type="text/javascript" src="/notafiscal/javax.faces.resource/slimScroll/jquery.slimscroll.min.js.jsf?ln=vendor"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/metisMenu/dist/metisMenu.min.js.jsf?ln=vendor"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/iCheck/icheck.min.js.jsf?ln=vendor"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/sparkline/index.js.jsf?ln=vendor"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/sweetalert/dist/sweetalert.min.js.jsf?ln=vendor"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/homer.js.jsf?ln=scripts"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/bootstrap/3.3.1/js/bootstrap.js.jsf?ln=webjars"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/i18n.js.jsf?ln=js"></script><script type="text/javascript" src="RES_NOT_FOUND"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/jarch.js.jsf?ln=js&amp;v=202601310727"></script><script type="text/javascript" src="/notafiscal/javax.faces.resource/local.js.jsf?ln=js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.botaoSairMenu')
+                .click(
+                    function () {
+                        closeSystem(
+                            "Finaliza o Sistema?",
+                            "Dados não salvo(s) serão perdido(s)",
+                            "Cancelar",
+                            "Sim, quero sair",
+                            "Cancelado",
+                            "Voltar para sistema")
+                    });
+        });
+    </script>
+
+<style type="text/css">
+    .notificacao-top {
+        filter: alpha(opacity=80);
+        /*opacity: 0.8;*/
+        padding: 0;
+        z-index: 1000;
+
+        /*top: 2px!important;*/
+        height: 18px;
+        background-color: #219ae5;
+        text-align: center;
+    }
+
+    .notificacao-top > span {
+        font-size: 1.4rem !important;
+        color: white;
+        font-weight: bold;
+
+    }
+</style><div id="j_idt353" class="ui-notificationbar ui-widget ui-widget-content notificacao-top" style="top: 0px;"><span style="">Atenção - Ambiente de Homologação </span></div>
+
+<script type="text/javascript">
+    $(function () {
+        if () {
+            // toastr.warning('Ambiente de Homologação.' , 'Atenção');
+            PF('notificacaoAmbienteHomologacao').show();
+        }
+    });
+</script>
+
+
+<form id="j_idt357" name="j_idt357" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt357" value="j_idt357">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:5" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+<span id="j_idt357:timerSessionApplication" title="" class="ui-timer ui-widget ui-widget-header ui-corner-all jarch-timer-sessao" style="display:none;border: unset">00:22:01</span>
+</form>
+<form id="j_idt358" name="j_idt358" method="post" action="/notafiscal/paginas/livrofiscal/relatorioLivroFiscal.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt358" value="j_idt358">
+<input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:6" value="-3397963139834600146:-7753324609984807317" autocomplete="off">
+
+</form>
+
+<div id="frmRelatorio:j_idt101:j_idt104:idStart_panel" role="dialog" aria-modal="true" aria-label="Choose Date" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-shadow ui-input-overlay ui-datepicker-monthpicker p-datepicker-panel" style="display: none; position: absolute;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><button type="button" aria-label="Previous Year" class="ui-datepicker-prev ui-corner-all" tabindex="0"><span class="ui-icon ui-icon-circle-triangle-w"></span></button><button type="button" aria-label="Next Year" class="ui-datepicker-next ui-corner-all" tabindex="0"><span class="ui-icon ui-icon-circle-triangle-e"></span></button><div class="ui-datepicker-title"><span class="ui-datepicker-year">2026</span></div></div><div class="ui-monthpicker"><a tabindex="0" class="ui-monthpicker-month">Jan</a><a tabindex="0" class="ui-monthpicker-month">Fev</a><a tabindex="0" class="ui-monthpicker-month">Mar</a><a tabindex="0" class="ui-monthpicker-month">Abr</a><a tabindex="0" class="ui-monthpicker-month">Mai</a><a tabindex="0" class="ui-monthpicker-month">Jun</a><a tabindex="0" class="ui-monthpicker-month">Jul</a><a tabindex="0" class="ui-monthpicker-month">Ago</a><a tabindex="0" class="ui-monthpicker-month">Set</a><a tabindex="0" class="ui-monthpicker-month">Out</a><a tabindex="0" class="ui-monthpicker-month">Nov</a><a tabindex="0" class="ui-monthpicker-month">Dez</a></div></div><div id="frmRelatorio:j_idt101:j_idt104:idEnd_panel" role="dialog" aria-modal="true" aria-label="Choose Date" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-shadow ui-input-overlay ui-datepicker-monthpicker p-datepicker-panel" style="display: none; position: absolute;"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all"><button type="button" aria-label="Previous Year" class="ui-datepicker-prev ui-corner-all" tabindex="0"><span class="ui-icon ui-icon-circle-triangle-w"></span></button><button type="button" aria-label="Next Year" class="ui-datepicker-next ui-corner-all" tabindex="0"><span class="ui-icon ui-icon-circle-triangle-e"></span></button><div class="ui-datepicker-title"><span class="ui-datepicker-year">2026</span></div></div><div class="ui-monthpicker"><a tabindex="0" class="ui-monthpicker-month">Jan</a><a tabindex="0" class="ui-monthpicker-month">Fev</a><a tabindex="0" class="ui-monthpicker-month">Mar</a><a tabindex="0" class="ui-monthpicker-month">Abr</a><a tabindex="0" class="ui-monthpicker-month">Mai</a><a tabindex="0" class="ui-monthpicker-month">Jun</a><a tabindex="0" class="ui-monthpicker-month">Jul</a><a tabindex="0" class="ui-monthpicker-month">Ago</a><a tabindex="0" class="ui-monthpicker-month">Set</a><a tabindex="0" class="ui-monthpicker-month">Out</a><a tabindex="0" class="ui-monthpicker-month">Nov</a><a tabindex="0" class="ui-monthpicker-month">Dez</a></div></div><div id="frmRelatorio:j_idt101:j_idt117:idSelectOneMenu_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div><div id="frmRelatorio:j_idt101:j_idt148:idSelectOneMenu_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div><div id="frmRelatorio:j_idt101:j_idt192:idSelectOneMenu_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt258_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1" style="position: fixed;"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div><div id="j_idt239:j_idt240:j_idt244:tabViewFilterSearch:j_idt265_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay" tabindex="-1" style="position: fixed;"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"></div></div><div class="ui-dialog-docking-zone"></div></body></html>
