@@ -13,6 +13,16 @@ USER_DATA_DIR = os.path.join(PROJECT_DIR, "chrome_profile")
 CONFIG_FILE = os.path.join(PROJECT_DIR, "planejamento", "Relação de empresas.xlsx")
 MASTER_FILE = os.path.join(PROJECT_DIR, "consolidado.xlsx")
 
+# Gera o nome do arquivo de log unico para esta execucao
+TIMESTAMP_EXECUCAO = datetime.now().strftime("%Y%m%d-%H%M%S")
+LOG_FILE = os.path.join(LIVROS_DIR, f"log_execucao_{TIMESTAMP_EXECUCAO}.txt")
+
+def log_exec(cnpj, nome, comp, status, detalhes):
+    agora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    linha = f"[{agora}] CNPJ: {cnpj} | Nome: {nome} | Comp: {comp} | Status: {status} | Info: {detalhes}\n"
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(linha)
+
 for d in [LIVROS_DIR, USER_DATA_DIR]:
     if not os.path.exists(d):
         os.makedirs(d)
@@ -138,6 +148,8 @@ def run_bot(competencia_mes_ano):
                 continue
                 
             print(f">>> Iniciando target: {cnpj}")
+            nome_empresa = target.get('Nome_Empresa', '')
+            
             
             # Funcao auxiliar para clicar usando javascript puro ignorando opacidade/visibilidade do JSF
             def js_click_text(selector, text):
@@ -175,6 +187,16 @@ def run_bot(competencia_mes_ano):
                 time.sleep(3)
                 
                 # Clicar na linha da tabela onde ta o CNPJ/check (Como o CNPJ vem formatado com mascara na web, clicamos no primeiro result)
+                has_selecionar = page.evaluate('''() => {
+                    let links = Array.from(document.querySelectorAll("a"));
+                    return links.some(el => (el.textContent || "").includes("Selecionar") || (el.title || "").includes("Selecionar"));
+                }''')
+                
+                if not has_selecionar:
+                    print(f"CNPJ {cnpj} não listado nas procurações. Pulando pros próximos...")
+                    log_exec(cnpj, nome_empresa, competencia_mes_ano, "IGNORADO", "CNPJ não encontrado na tabela de procurações após pesquisa")
+                    continue
+
                 js_click_text('a', 'Selecionar')
                 time.sleep(4)
                 
@@ -223,31 +245,20 @@ def run_bot(competencia_mes_ano):
                 # Tentar encontrar a Saída "Excel" antes de clicar no export / gerar
                 # Tentar encontrar a Saída "Excel" antes de clicar no export / gerar
                 try:
-                    # Clica na seta (trigger) correta do SelectOneMenu vinculado ao label 'Saída'
-                    page.evaluate('''() => {
-                        let labels = Array.from(document.querySelectorAll('label'));
-                        let saida = labels.find(l => (l.innerText || "").trim().includes("Saída"));
-                        if(saida) {
-                            let forId = saida.getAttribute('for');
-                            if(forId) {
-                                // Escapa caracteres especiais do JSF no selector
-                                let menuDiv = document.getElementById(forId);
-                                if(menuDiv) {
-                                    let trigger = menuDiv.querySelector('.ui-selectonemenu-trigger');
-                                    if(trigger) trigger.click();
-                                }
-                            }
-                        }
-                    }''')
-                    time.sleep(1)
-                    
-                    # Clicando especificamente no <li> do Excel usando document.querySelectorAll
-                    page.evaluate('''() => {
-                        let items = Array.from(document.querySelectorAll('li.ui-selectonemenu-item'));
-                        let excelItem = items.find(li => (li.textContent || "").includes("Excel") || (li.textContent || "").includes("XLS"));
-                        if(excelItem) excelItem.click();
-                    }''')
-                    time.sleep(1)
+                    # 1. Clicar na caixa de dropdown Saída via Playwright para garantir que o evento Focus/Click ocorra no DOM real
+                    lbl_saida = page.locator('label', has_text='Saída').first
+                    if lbl_saida.is_visible():
+                        # Clica na seta apontadora (trigger) do select correspondente
+                        lbl_saida.locator('xpath=..').locator('.ui-selectonemenu-trigger').click(force=True)
+                        time.sleep(1)
+                        
+                        # 2. Clicar na opção Excel na lista renderizada no fim do HTML
+                        item_excel = page.locator('li.ui-selectonemenu-item:has-text("Excel"), li.ui-selectonemenu-item:has-text("XLS")').first
+                        if item_excel.is_visible():
+                            item_excel.click(force=True)
+                        else:
+                            js_click_text('li.ui-selectonemenu-item', 'Excel')
+                        time.sleep(1)
                 except Exception as e:
                     print(f"Nota: não foi possível mudar a 'Saída' para Excel pelo dropdown. Continuando... Erro: {e}")
 
@@ -320,6 +331,7 @@ def run_bot(competencia_mes_ano):
                     }
                     master_df = pd.concat([master_df, pd.DataFrame([resumo_vazio])], ignore_index=True)
                     save_master_df(master_df)
+                    log_exec(cnpj, nome_empresa, competencia_mes_ano, "SUCESSO_VAZIO", "Sem notas fiscais no período. Valores zerados registrados.")
                     continue # Pula o processamento do excel e vai pra rotina do proximo cnpj
                     
                 if not download_obj[0]:
@@ -331,9 +343,15 @@ def run_bot(competencia_mes_ano):
                 sugg_ext = download.suggested_filename.split('.')[-1]
                 if not sugg_ext: sugg_ext = 'xlsx'
                 
-                filepath = os.path.join(LIVROS_DIR, f"{competencia_mes_ano.replace('/','')}_{target.get('Nome_Empresa','empresa')}.{sugg_ext}")
+                # Previne que barras ou caracteres ilegais no nome da empresa (ex: S/S) criem pastas indesejadas
+                nome_seguro = nome_empresa.replace('/', '-').replace('\\', '-').strip()
+                if not nome_seguro:
+                    nome_seguro = 'empresa'
+                    
+                filepath = os.path.join(LIVROS_DIR, f"{competencia_mes_ano.replace('/','')}_{nome_seguro}.{sugg_ext}")
                 if os.path.exists(filepath):
-                    os.remove(filepath)
+                    agora = datetime.now().strftime("%H%M%S")
+                    filepath = os.path.join(LIVROS_DIR, f"{competencia_mes_ano.replace('/','')}_{nome_seguro}_{agora}.{sugg_ext}")
                     
                 download.save_as(filepath)
                 print(f"Download salvo em: {filepath}")
@@ -344,9 +362,11 @@ def run_bot(competencia_mes_ano):
                     master_df = pd.concat([master_df, pd.DataFrame([resumo])], ignore_index=True)
                     save_master_df(master_df)
                     print(f"Planilha mestre atualizada com {cnpj}.")
+                    log_exec(cnpj, nome_empresa, competencia_mes_ano, "SUCESSO_ARQUIVO", f"Arquivo {sugg_ext.upper()} consolidado")
                     
             except Exception as e:
                 print(f"Erro ao processar Empresa {cnpj}: {e}")
+                log_exec(cnpj, nome_empresa, competencia_mes_ano, "ERRO", str(e).replace('\n', ' '))
                 page.screenshot(path=f"error_empresa_{cnpj}.png")
                 
         print("Finalizado processamento de todas as empresas da lista!")
