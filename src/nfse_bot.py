@@ -10,7 +10,6 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(BASE_DIR)
 LIVROS_DIR = os.path.join(PROJECT_DIR, "livros")
 USER_DATA_DIR = os.path.join(PROJECT_DIR, "chrome_profile")
-CONFIG_FILE = os.path.join(PROJECT_DIR, "planejamento", "Relação de empresas.xlsx")
 MASTER_FILE = os.path.join(PROJECT_DIR, "consolidado.xlsx")
 
 # Gera o nome do arquivo de log unico para esta execucao
@@ -40,12 +39,12 @@ def load_master_df():
 def save_master_df(df):
     df.to_excel(MASTER_FILE, index=False)
 
-def read_targets():
-    if not os.path.exists(CONFIG_FILE):
-        print(f"Arquivo {CONFIG_FILE} nao existe!")
+def read_targets(config_file_path):
+    if not os.path.exists(config_file_path):
+        print(f"Arquivo {config_file_path} nao existe!")
         return []
     # Lendo o excel base da prefeitura - pulando cabeçalho (linha 1 parece ser vazia/titulo)
-    df = pd.read_excel(CONFIG_FILE, header=1)
+    df = pd.read_excel(config_file_path, header=1)
     
     targets = []
     # As colunas parecem ser "Razão Social" e "CNPJ" ou algo similar.
@@ -111,8 +110,8 @@ def process_livro_fiscal(filepath, target, competencia):
     }
     return resumo
 
-def run_bot(competencia_mes_ano):
-    targets = read_targets()
+def run_bot(competencia_mes_ano, config_file_path, wait_for_input=False):
+    targets = read_targets(config_file_path)
     if not targets:
         return
         
@@ -138,8 +137,11 @@ def run_bot(competencia_mes_ano):
             print(f"ERRO: Não foi possível conectar ao Chrome. Certifique-se de abri-lo pelo atalho de depuração.\nDetalhes: {e}")
             return
             
-        input("Pressione ENTER SOMENTE quando você estiver na tela de 'Pesquisar CNPJ' após o Certificado Digital...")
-        
+        if wait_for_input:
+            input("Pressione ENTER SOMENTE quando você estiver na tela de 'Pesquisar CNPJ' após o Certificado Digital...")
+        else:
+            print("Iniciando varredura automatizada a partir da tela atual...")
+            
         for target in targets:
             cnpj = target['CNPJ'].strip()
             
@@ -374,4 +376,6 @@ def run_bot(competencia_mes_ano):
 
 if __name__ == "__main__":
     competencia = input("Digite a competência para buscar os livros (Formato MM/AAAA): ")
-    run_bot(competencia)
+    # Em caso de rodar solto no terminal pro debug manual, fixa o padrao antigo
+    old_config = os.path.join(PROJECT_DIR, "planejamento", "Relação de empresas.xlsx")
+    run_bot(competencia, old_config)

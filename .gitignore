@@ -9,3 +9,6 @@ error_*.png
 .gemini/
 *.mp4
 planejamento/Capturas/
+dist/
+build/
+*.spec
