@@ -11,3 +11,10 @@ error_*.png
 planejamento/Capturas/
 build/
 *.spec
+dist/
+Relatorios/
+testes/
+*.bkp
+*.log
+planejamento/*Copia*
+data/

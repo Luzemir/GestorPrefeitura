@@ -19,97 +19,197 @@ def resource_path(relative_path):
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import nfse_bot
 
-# Configuraçoes visuais
-ctk.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
-ctk.set_default_color_theme("blue")  # Themes: "blue" (standard), "green", "dark-blue"
+# Configuraçoes visuais - Temas Contili
+ctk.set_appearance_mode("Dark")  # Forçamos o Dark Mode conforme o design premium
+ctk.set_default_color_theme("blue")
 
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("NFSe Bot - Gestor Fiscal")
-        self.geometry("600x700")
-        self.resizable(False, False)
+        self.title("NFSe Bot - Gestor Fiscal Contili")
+        self.geometry("1000x750")
+        self.resizable(True, True)
         
-        self.selected_file_path = None
-        
-        self.create_widgets()
+        # Grid layout 1x2 (Sidebar e Content)
+        self.grid_rowconfigure(0, weight=1)
+        self.grid_columnconfigure(1, weight=1)
 
-    def create_widgets(self):
-        # Logo da Contili no topo
+        self.selected_file_path = None
+        self.selected_dir_path = None
+        
+        # --- SIDEBAR ---
+        self.sidebar_frame = ctk.CTkFrame(self, width=200, corner_radius=0)
+        self.sidebar_frame.grid(row=0, column=0, sticky="nsew")
+        self.sidebar_frame.grid_rowconfigure(4, weight=1) # Espaço flexível no fim
+
+        # Logo na Sidebar
         try:
             logo_path = resource_path("contili_logo.png")
             if os.path.exists(logo_path):
-                # Aumentando um pouco a logo
-                logo_img = ctk.CTkImage(light_image=Image.open(logo_path), dark_image=Image.open(logo_path), size=(200, 70))
-                self.lbl_logo = ctk.CTkLabel(self, image=logo_img, text="")
-                self.lbl_logo.pack(pady=(15, 0))
-        except Exception as e:
-            pass # Ignora se falhar ao carregar logo
-            
+                logo_img = ctk.CTkImage(light_image=Image.open(logo_path), dark_image=Image.open(logo_path), size=(160, 50))
+                self.lbl_logo_sidebar = ctk.CTkLabel(self.sidebar_frame, image=logo_img, text="")
+                self.lbl_logo_sidebar.grid(row=0, column=0, padx=20, pady=20)
+        except:
+            self.lbl_logo_sidebar = ctk.CTkLabel(self.sidebar_frame, text="CONTILI", font=ctk.CTkFont(size=20, weight="bold"))
+            self.lbl_logo_sidebar.grid(row=0, column=0, padx=20, pady=20)
+
+        # Botões de Navegação
+        self.btn_nav_notas = ctk.CTkButton(self.sidebar_frame, corner_radius=10, height=40, border_spacing=10, text="📄 Extrato de Notas",
+                                           fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
+                                           anchor="w", command=self.btn_nav_notas_event)
+        self.btn_nav_notas.grid(row=1, column=0, sticky="ew", padx=20, pady=5)
+
+        self.btn_nav_dominio = ctk.CTkButton(self.sidebar_frame, corner_radius=10, height=40, border_spacing=10, text="📊 Relatórios Domínio",
+                                           fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
+                                           anchor="w", command=self.btn_nav_dominio_event)
+        self.btn_nav_dominio.grid(row=2, column=0, sticky="ew", padx=20, pady=5)
+
+        self.btn_nav_comparativo = ctk.CTkButton(self.sidebar_frame, corner_radius=10, height=40, border_spacing=10, text="⚖️ Comparativos",
+                                           fg_color="transparent", text_color=("gray10", "gray90"), hover_color=("gray70", "gray30"),
+                                           anchor="w", command=self.btn_nav_comparativo_event)
+        self.btn_nav_comparativo.grid(row=3, column=0, sticky="ew", padx=20, pady=5)
+
+        # --- FRAMES DE CONTEÚDO ---
+        
+        # 1. Extrato de Notas (Home)
+        self.notas_frame = ctk.CTkScrollableFrame(self, corner_radius=0, fg_color="transparent")
+        self.setup_notas_frame()
+
+        # 2. Relatórios Domínio
+        self.dominio_frame = ctk.CTkFrame(self, corner_radius=0, fg_color="transparent")
+        self.setup_placeholder_frame(self.dominio_frame, "📊 Relatórios Domínio", "Módulo em desenvolvimento para extração de dados do sistema Domínio.")
+
+        # 3. Comparativos
+        self.comparativo_frame = ctk.CTkFrame(self, corner_radius=0, fg_color="transparent")
+        self.setup_placeholder_frame(self.comparativo_frame, "⚖️ Comparativos", "Módulo em desenvolvimento para cruzamento de NFSe x Domínio.")
+
+        # Selecionar porta padrão
+        self.select_frame_by_name("notas")
+
+    def setup_notas_frame(self):
         # Titulo Principal
-        self.title_label = ctk.CTkLabel(self, text="Extrator de Notas Fiscais (Campo Grande/MS)", font=ctk.CTkFont(size=20, weight="bold"))
-        self.title_label.pack(pady=(10, 10))
+        self.title_label = ctk.CTkLabel(self.notas_frame, text="Extrator de Notas Fiscais (NFSe)", font=ctk.CTkFont(size=24, weight="bold"))
+        self.title_label.pack(pady=(20, 20))
         
         # Frame Passo 1
-        self.frame_p1 = ctk.CTkFrame(self)
-        self.frame_p1.pack(pady=10, padx=20, fill="x")
+        self.frame_p1 = ctk.CTkFrame(self.notas_frame, corner_radius=20)
+        self.frame_p1.pack(pady=10, padx=40, fill="x")
         
-        self.lbl_p1 = ctk.CTkLabel(self.frame_p1, text="Passo 1: Preparar Ambiente", font=ctk.CTkFont(weight="bold"))
-        self.lbl_p1.pack(pady=(10, 5))
+        self.lbl_p1 = ctk.CTkLabel(self.frame_p1, text="Passo 1: Preparar Ambiente", font=ctk.CTkFont(weight="bold", size=15))
+        self.lbl_p1.pack(pady=(15, 5))
         self.desc_p1 = ctk.CTkLabel(self.frame_p1, text="É obrigatório fechar todos os navegadores Chrome antes de iniciar.", text_color="gray")
         self.desc_p1.pack(pady=(0, 5))
-        self.btn_kill = ctk.CTkButton(self.frame_p1, text="⛔ Encerrar Chrome Aberto", fg_color="#c0392b", hover_color="#e74c3c", command=self.kill_chrome)
-        self.btn_kill.pack(pady=10)
+        self.btn_kill = ctk.CTkButton(self.frame_p1, text="⛔ Encerrar Chrome Aberto", fg_color="#c0392b", hover_color="#e74c3c", corner_radius=20, command=self.kill_chrome)
+        self.btn_kill.pack(pady=15)
         
         # Frame Passo 2
-        self.frame_p2 = ctk.CTkFrame(self)
-        self.frame_p2.pack(pady=10, padx=20, fill="x")
+        self.frame_p2 = ctk.CTkFrame(self.notas_frame, corner_radius=20)
+        self.frame_p2.pack(pady=10, padx=40, fill="x")
         
-        self.lbl_p2 = ctk.CTkLabel(self.frame_p2, text="Passo 2: Iniciar Navegador Integrado", font=ctk.CTkFont(weight="bold"))
-        self.lbl_p2.pack(pady=(10, 5))
-        self.desc_p2 = ctk.CTkLabel(self.frame_p2, text="Clique abaixo, insira o certificado no portal e aguarde a tela principal.", text_color="gray")
+        self.lbl_p2 = ctk.CTkLabel(self.frame_p2, text="Passo 2: Iniciar Navegador Integrado", font=ctk.CTkFont(weight="bold", size=15))
+        self.lbl_p2.pack(pady=(15, 5))
+        self.desc_p2 = ctk.CTkLabel(self.frame_p2, text="Clique abaixo para abrir o portal e selecione o certificado.", text_color="gray")
         self.desc_p2.pack(pady=(0, 5))
-        self.btn_start_chrome = ctk.CTkButton(self.frame_p2, text="🌐 Abrir Chrome do Robô", command=self.start_chrome)
-        self.btn_start_chrome.pack(pady=10)
+        self.btn_start_chrome = ctk.CTkButton(self.frame_p2, text="🌐 Abrir Chrome do Robô", fg_color="#0052CC", hover_color="#003D99", corner_radius=20, command=self.start_chrome)
+        self.btn_start_chrome.pack(pady=15)
         
-        # Frame Passo 3 e 4 (Extraçao)
-        self.frame_p3 = ctk.CTkFrame(self)
-        self.frame_p3.pack(pady=10, padx=20, fill="x")
+        # Frame Passo 3 (Extraçao)
+        self.frame_p3 = ctk.CTkFrame(self.notas_frame, corner_radius=20)
+        self.frame_p3.pack(pady=10, padx=40, fill="x")
         
-        self.lbl_p3 = ctk.CTkLabel(self.frame_p3, text="Passo 3: Dados da Extração", font=ctk.CTkFont(weight="bold"))
-        self.lbl_p3.pack(pady=(10, 5))
+        self.lbl_p3 = ctk.CTkLabel(self.frame_p3, text="Passo 3: Dados da Extração", font=ctk.CTkFont(weight="bold", size=15))
+        self.lbl_p3.pack(pady=(15, 5))
         
         # Grid para inputs
         self.grid_frame = ctk.CTkFrame(self.frame_p3, fg_color="transparent")
-        self.grid_frame.pack(pady=10, padx=10, fill="x")
+        self.grid_frame.pack(pady=10, padx=20, fill="x")
         
         # Coluna Esq
         self.lbl_comp = ctk.CTkLabel(self.grid_frame, text="Competência (MM/AAAA):")
-        self.lbl_comp.grid(row=0, column=0, padx=10, pady=5, sticky="e")
+        self.lbl_comp.grid(row=0, column=0, padx=10, pady=10, sticky="e")
         
-        self.entry_comp = ctk.CTkEntry(self.grid_frame, placeholder_text="Ex: 02/2026", width=120)
-        self.entry_comp.grid(row=0, column=1, padx=10, pady=5, sticky="w")
+        self.entry_comp = ctk.CTkEntry(self.grid_frame, placeholder_text="Ex: 02/2026", width=150, corner_radius=10)
+        self.entry_comp.grid(row=0, column=1, padx=10, pady=10, sticky="w")
+        self.entry_comp.bind("<KeyRelease>", self.format_date_mask)
         
-        # Coluna Dir
-        self.btn_file = ctk.CTkButton(self.grid_frame, text="📁 Selecionar Relação (.xlsx)", fg_color="gray", command=self.select_file)
-        self.btn_file.grid(row=1, column=0, padx=10, pady=10, sticky="e")
+        # Diretório Destino
+        self.btn_dir = ctk.CTkButton(self.grid_frame, text="📂 Pasta Destino (Opcional)", fg_color="gray40", height=35, corner_radius=10, command=self.select_dir)
+        self.btn_dir.grid(row=1, column=0, padx=10, pady=10, sticky="e")
         
-        self.lbl_filename = ctk.CTkLabel(self.grid_frame, text="Nenhum arquivo...", text_color=("#c0392b", "#F1C40F"), font=ctk.CTkFont(size=14, weight="bold"))
-        self.lbl_filename.grid(row=1, column=1, padx=10, pady=10, sticky="w")
+        self.lbl_dirname = ctk.CTkLabel(self.grid_frame, text="Padrão (pasta 'livros')", text_color="gray60", font=ctk.CTkFont(size=12))
+        self.lbl_dirname.grid(row=1, column=1, padx=10, pady=10, sticky="w")
         
-        self.btn_model = ctk.CTkButton(self.grid_frame, text="📄 Gerar Modelo Vazio", fg_color="#2980b9", text_color="white", hover_color="#3498db", border_width=0, command=self.generate_model)
-        self.btn_model.grid(row=2, column=0, columnspan=2, pady=(5, 10))
+        # Arquivo de Relação
+        self.btn_file = ctk.CTkButton(self.grid_frame, text="📁 Relação Empresas (.xlsx)", fg_color="gray40", height=35, corner_radius=10, command=self.select_file)
+        self.btn_file.grid(row=2, column=0, padx=10, pady=10, sticky="e")
         
-        # Botão Iniciar Processo (Expandido)
-        self.btn_run = ctk.CTkButton(self, text="🚀 INICIAR EXTRAÇÃO", font=ctk.CTkFont(size=24, weight="bold"), height=70, fg_color="#27ae60", hover_color="#2ecc71", command=self.start_robot_thread)
-        self.btn_run.pack(pady=(15, 10))
+        self.lbl_filename = ctk.CTkLabel(self.grid_frame, text="Nenhum arquivo...", text_color="#F1C40F", font=ctk.CTkFont(size=13, weight="bold"))
+        self.lbl_filename.grid(row=2, column=1, padx=10, pady=10, sticky="w")
         
-        # Barra de status (Texto dinâmico para modos Claro/Escuro)
+        self.btn_model = ctk.CTkButton(self.frame_p3, text="📄 Gerar Modelo Vazio", fg_color="darkblue", text_color="white", corner_radius=20, command=self.generate_model)
+        self.btn_model.pack(pady=(0, 15))
+        
+        # Botão Iniciar Processo
+        self.btn_run = ctk.CTkButton(self.notas_frame, text="🚀 INICIAR EXTRAÇÃO", font=ctk.CTkFont(size=22, weight="bold"), height=80, fg_color="#27ae60", hover_color="#2ecc71", corner_radius=20, command=self.start_robot_thread)
+        self.btn_run.pack(pady=(20, 10), padx=40, fill="x")
+        
+        # Barra de status
         self.status_var = ctk.StringVar(value="Aguardando...")
-        self.lbl_status = ctk.CTkLabel(self, textvariable=self.status_var, text_color=("#2c3e50", "#bdc3c7"), font=ctk.CTkFont(size=12, weight="bold"))
+        self.lbl_status = ctk.CTkLabel(self.notas_frame, textvariable=self.status_var, font=ctk.CTkFont(size=12, weight="bold"))
         self.lbl_status.pack(pady=5)
+
+        # Log em Tempo Real
+        self.lbl_log_title = ctk.CTkLabel(self.notas_frame, text="Log de Acompanhamento:", font=ctk.CTkFont(weight="bold"))
+        self.lbl_log_title.pack(pady=(20, 0), padx=40, anchor="w")
         
+        self.log_textbox = ctk.CTkTextbox(self.notas_frame, height=250, corner_radius=15, font=ctk.CTkFont(family="Consolas", size=11))
+        self.log_textbox.pack(pady=(5, 40), padx=40, fill="x")
+        self.log_textbox.configure(state="disabled")
+
+    def setup_placeholder_frame(self, frame, title, description):
+        title_lbl = ctk.CTkLabel(frame, text=title, font=ctk.CTkFont(size=24, weight="bold"))
+        title_lbl.pack(pady=(100, 20))
+        
+        desc_lbl = ctk.CTkLabel(frame, text=description, text_color="gray", font=ctk.CTkFont(size=16))
+        desc_lbl.pack(pady=10)
+        
+        soon_lbl = ctk.CTkLabel(frame, text="PROXIMAMENTE", fg_color="#F1C40F", text_color="black", corner_radius=10, padx=10, pady=5)
+        soon_lbl.pack(pady=30)
+
+    # --- Lógica de Navegação ---
+    def select_frame_by_name(self, name):
+        # Reset buttons colors
+        self.btn_nav_notas.configure(fg_color=("gray75", "gray25") if name == "notas" else "transparent")
+        self.btn_nav_dominio.configure(fg_color=("gray75", "gray25") if name == "dominio" else "transparent")
+        self.btn_nav_comparativo.configure(fg_color=("gray75", "gray25") if name == "comparativo" else "transparent")
+
+        # Show selected frame
+        if name == "notas":
+            self.notas_frame.grid(row=0, column=1, sticky="nsew")
+        else:
+            self.notas_frame.grid_forget()
+            
+        if name == "dominio":
+            self.dominio_frame.grid(row=0, column=1, sticky="nsew")
+        else:
+            self.dominio_frame.grid_forget()
+            
+        if name == "comparativo":
+            self.comparativo_frame.grid(row=0, column=1, sticky="nsew")
+        else:
+            self.comparativo_frame.grid_forget()
+
+    def btn_nav_notas_event(self):
+        self.select_frame_by_name("notas")
+
+    def btn_nav_dominio_event(self):
+        self.select_frame_by_name("dominio")
+
+    def btn_nav_comparativo_event(self):
+        self.select_frame_by_name("comparativo")
+
+    # --- Lógica de Funçoes (Originais mantidas) ---
     def kill_chrome(self):
         answer = messagebox.askyesno("Confirmar", "Tem certeza que deseja forçar o fechamento de TODAS as janelas do Google Chrome?\n(Você perderá o que não estiver salvo nas abas)")
         if answer:
@@ -122,65 +222,113 @@ class App(ctk.CTk):
 
     def start_chrome(self):
         user_data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "chrome_profile")
-        cmd = f'Start-Process "chrome.exe" -ArgumentList "--remote-debugging-port=9222 --user-data-dir={user_data_path}"'
+        import shutil
+        executable = shutil.which("chrome") or shutil.which("chrome.exe")
+        if not executable:
+            chrome_paths = [
+                r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+                r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+                os.path.join(os.environ.get("LOCALAPPDATA", ""), r"Google\Chrome\Application\chrome.exe")
+            ]
+            for path in chrome_paths:
+                if os.path.exists(path):
+                    executable = path
+                    break
+        if not executable:
+            messagebox.showerror("Erro", "Não foi possível encontrar o executável do Google Chrome neste PC.")
+            return
+        url_login = "https://nfse.campogrande.ms.gov.br/notafiscal/paginas/portal/index.html#/login"
+        chrome_args = [executable, "--remote-debugging-port=9222", f"--user-data-dir={user_data_path}", "--no-first-run", "--no-default-browser-check", url_login]
         try:
-            subprocess.Popen(["powershell", "-Command", cmd], creationflags=subprocess.CREATE_NO_WINDOW)
-            self.status_var.set("Navegador aberto na porta de depuração.")
-            messagebox.showinfo("Sucesso", "Chrome aberto! Siga com o certificado e a tela inicial no site.")
+            self.status_var.set("Iniciando navegador...")
+            subprocess.Popen(chrome_args, creationflags=subprocess.CREATE_NO_WINDOW)
+            self.status_var.set("Navegador aberto.")
+            messagebox.showinfo("Sucesso", "Chrome aberto! Siga com o certificado no site.")
         except Exception as e:
             messagebox.showerror("Erro", f"Falha ao abrir Chrome: {e}")
 
     def select_file(self):
-        filepath = filedialog.askopenfilename(
-            title="Selecione a Relação de Empresas",
-            filetypes=[("Excel files", "*.xlsx *.xls")]
-        )
+        filepath = filedialog.askopenfilename(title="Selecione a Relação de Empresas", filetypes=[("Excel files", "*.xlsx *.xls")])
         if filepath:
             self.selected_file_path = filepath
             filename = os.path.basename(filepath)
             self.lbl_filename.configure(text=filename, text_color="white")
+            
+    def select_dir(self):
+        dirpath = filedialog.askdirectory(title="Selecione a Pasta de Destino")
+        if dirpath:
+            self.selected_dir_path = dirpath
+            dirname = os.path.basename(dirpath)
+            self.lbl_dirname.configure(text=f".../{dirname}", text_color="white")
+            
+    def format_date_mask(self, event):
+        if event.keysym == "BackSpace": return
+        text = self.entry_comp.get().replace("/", "")
+        digits = "".join([c for c in text if c.isdigit()])[:6]
+        formatted = ""
+        if len(digits) > 2: formatted = digits[:2] + "/" + digits[2:]
+        else: formatted = digits
+        if self.entry_comp.get() != formatted:
+            self.entry_comp.delete(0, "end")
+            self.entry_comp.insert(0, formatted)
             
     def generate_model(self):
         try:
             model_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "Modelo_Empresas.xlsx")
             df = pd.DataFrame(columns=["Razão Social", "CNPJ"])
             df.to_excel(model_path, index=False)
-            messagebox.showinfo("Modelo Criado", f"O modelo foi criado em:\n{model_path}\nEle será aberto agora.")
+            messagebox.showinfo("Modelo Criado", f"O modelo foi criado em:\n{model_path}")
             os.startfile(model_path)
         except Exception as e:
-            messagebox.showerror("Erro", f"Não foi possível gerar o modelo:\n{e}")
+            messagebox.showerror("Erro", f"Não foi possível gerar o modelo: {e}")
+
+    def update_log(self, message):
+        def _append():
+            self.log_textbox.configure(state="normal")
+            agora = pd.Timestamp.now().strftime("%H:%M:%S")
+            self.log_textbox.insert("end", f"[{agora}] {message}\n")
+            self.log_textbox.see("end")
+            self.log_textbox.configure(state="disabled")
+        self.after(0, _append)
+
+    def is_file_locked(self, filepath):
+        if not os.path.exists(filepath): return False
+        try:
+            with open(filepath, 'a'): pass
+            return False
+        except IOError: return True
 
     def start_robot_thread(self):
         comp = self.entry_comp.get().strip()
         if not comp or len(comp) < 7:
             messagebox.showwarning("Aviso", "Preencha a competência corretamente (Ex: 02/2026).")
             return
-            
         if not self.selected_file_path:
-            messagebox.showwarning("Aviso", "Selecione o arquivo da Relação de Empresas (.xlsx).")
+            messagebox.showwarning("Aviso", "Selecione o arquivo da Relação de Empresas.")
             return
-            
-        # Desativa os botoes pra nao clonar execução
+        if self.is_file_locked(self.selected_file_path):
+            messagebox.showerror("Arquivo Aberto", "O arquivo de relação está aberto. Feche-o antes de continuar.")
+            return
         self.btn_run.configure(state="disabled")
         self.btn_start_chrome.configure(state="disabled")
-        self.status_var.set("Robô em Execução. Não mexa no navegador! Acompanhe o log pelo prompt se estiver aberto.")
-        
-        # Roda em thread paralela pro UI nao congelar
-        thread = threading.Thread(target=self.run_bot_background, args=(comp, self.selected_file_path))
+        self.status_var.set("Robô em Execução...")
+        thread = threading.Thread(target=self.run_bot_background, args=(comp, self.selected_file_path, self.selected_dir_path))
         thread.daemon = True
         thread.start()
         
-    def run_bot_background(self, comp, filepath):
+    def run_bot_background(self, comp, filepath, dirpath):
         try:
-            # Chama a funcao principal que modificamos no nfse_bot.py
-            nfse_bot.run_bot(comp, filepath, wait_for_input=False)
-            messagebox.showinfo("Finalizado", "A extração foi concluída com sucesso! Verifique a pasta 'livros'.")
+            self.update_log(f"▶️ Iniciando competência {comp}...")
+            nfse_bot.run_bot(comp, filepath, wait_for_input=False, output_dir=dirpath, log_callback=self.update_log)
+            self.update_log("✅ Processo finalizado com sucesso.")
+            messagebox.showinfo("Finalizado", "A extração foi concluída com sucesso!")
         except Exception as e:
-            messagebox.showerror("Erro na Extração", f"O processo falhou inesperadamente:\n{e}")
+            self.update_log(f"❌ ERRO CRÍTICO: {str(e)}")
+            messagebox.showerror("Erro na Extração", f"O processo falhou: {e}")
         finally:
             self.btn_run.configure(state="normal")
             self.btn_start_chrome.configure(state="normal")
-            self.status_var.set("Aguardando novo comando.")
+            self.status_var.set("Pronto.")
 
 if __name__ == "__main__":
     app = App()
