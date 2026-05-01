@@ -18,3 +18,5 @@ testes/
 *.log
 planejamento/*Copia*
 data/
+.agent/
+node_modules/
