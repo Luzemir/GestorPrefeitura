@@ -417,14 +417,43 @@ def run_bot(competencia_mes_ano, config_file_path, wait_for_input=False, output_
                         try:
                             lbl_agrup = page.locator('label', has_text='Agrupamento').first
                             if lbl_agrup.is_visible():
-                                lbl_agrup.locator('xpath=..').locator('.ui-selectonemenu-trigger').click(force=True)
-                                time.sleep(1)
-                                item_tipo = page.locator(f'li.ui-selectonemenu-item:has-text("{tipo_agrupamento}")').first
-                                if item_tipo.is_visible():
-                                    item_tipo.click(force=True)
-                                else:
-                                    js_click_text('li.ui-selectonemenu-item', tipo_agrupamento)
-                                time.sleep(1)
+                                container = lbl_agrup.locator('xpath=..')
+                                current_label = container.locator('.ui-selectonemenu-label').inner_text()
+                                
+                                if tipo_agrupamento not in current_label:
+                                    # Abre o dropdown
+                                    container.locator('.ui-selectonemenu-trigger').click(force=True)
+                                    time.sleep(1.5)
+                                    
+                                    # Clica via JS na opcao visivel
+                                    page.evaluate(f'''() => {{
+                                        let items = Array.from(document.querySelectorAll('li.ui-selectonemenu-item'));
+                                        for (let item of items) {{
+                                            if (item.innerText.includes("{tipo_agrupamento}") && item.offsetParent !== null) {{
+                                                item.click();
+                                                break;
+                                            }}
+                                        }}
+                                    }}''')
+                                    time.sleep(3) # Aguarda processamento AJAX do Primefaces
+                                    
+                                    # Valida se realmente mudou
+                                    current_label = container.locator('.ui-selectonemenu-label').inner_text()
+                                    if tipo_agrupamento not in current_label:
+                                        print(f"ALERTA: Falha ao alterar agrupamento. Atual: {current_label}. Forçando via hidden select...")
+                                        if log_callback: log_callback(f"⚠️ Forçando alteração para {tipo_agrupamento} via JS...")
+                                        page.evaluate(f'''() => {{
+                                            let selects = document.querySelectorAll('select');
+                                            for(let s of selects) {{
+                                                for(let o of s.options) {{
+                                                    if(o.text.includes("{tipo_agrupamento}")) {{
+                                                        s.value = o.value;
+                                                        s.dispatchEvent(new Event('change', {{ bubbles: true }}));
+                                                    }}
+                                                }}
+                                            }}
+                                        }}''')
+                                        time.sleep(3)
                         except Exception as e:
                             print(f"Nota: não foi possível mudar 'Agrupamento' para {tipo_agrupamento}. Erro: {e}")
 
