@@ -20,3 +20,6 @@ planejamento/*Copia*
 data/
 .agent/
 node_modules/
+chrome_profile_sefaz/
+Log_*.txt
+Modelo_*.xlsx

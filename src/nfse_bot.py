@@ -5,9 +5,15 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from playwright.sync_api import sync_playwright
 
+import sys
+def get_app_dir():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    else:
+        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Setup caminhos
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.dirname(BASE_DIR)
+PROJECT_DIR = get_app_dir()
 LIVROS_DIR = os.path.join(PROJECT_DIR, "livros")
 USER_DATA_DIR = os.path.join(PROJECT_DIR, "chrome_profile")
 SHEET_CONSOLIDACAO = "Consolidação"
@@ -402,6 +408,7 @@ def run_bot(competencia_mes_ano, config_file_path, wait_for_input=False, output_
                     page.screenshot(path=os.path.join(errors_dir, f"erro_menu_{cnpj}_{timestamp_log}.png"))
                     time.sleep(2)
                 
+                arquivos_baixados = {'ptd': None, 'tmd': None}
                 # NOVO LOOP DE MÚLTIPLOS AGRUPAMENTOS: Prestados e Tomados
                 for tipo_agrupamento, tipo_sigla in [('Serviços Prestados', 'ptd'), ('Serviços Tomados', 'tmd')]:
                     if log_callback: log_callback(f"Extraindo {tipo_agrupamento}...")
@@ -553,27 +560,19 @@ def run_bot(competencia_mes_ano, config_file_path, wait_for_input=False, output_
                         sugg_ext = download.suggested_filename.split('.')[-1]
                         if not sugg_ext: sugg_ext = 'xlsx'
                         
-                        nome_seguro = nome_empresa.replace('/', '-').replace('\\', '-').strip()
-                        if not nome_seguro:
-                            nome_seguro = 'empresa'
-                            
                         out_dir = output_dir if output_dir else LIVROS_DIR
                         
-                        # NOVO PADRÃO DE NOME + RESILIENCIA COM (1), (2), etc
-                        base_filename = f"{competencia_mes_ano.replace('/','')}-{tipo_sigla}-{nome_seguro}"
-                        filepath = os.path.join(out_dir, f"{base_filename}.{sugg_ext}")
-                        
-                        counter = 1
-                        while os.path.exists(filepath):
-                            filepath = os.path.join(out_dir, f"{base_filename}({counter}).{sugg_ext}")
-                            counter += 1
+                        # Salva em arquivo temporário para consolidação posterior
+                        temp_filepath = os.path.join(out_dir, f"temp_{tipo_sigla}_{cnpj}.xlsx")
+                        if os.path.exists(temp_filepath):
+                            os.remove(temp_filepath)
                             
-                        download.save_as(filepath)
-                        print(f"Download salvo em: {filepath}")
-                        if log_callback: log_callback(f"💾 Arquivo {tipo_sigla} salvo: {os.path.basename(filepath)}")
+                        download.save_as(temp_filepath)
+                        arquivos_baixados[tipo_sigla] = temp_filepath
+                        print(f"Download temporario salvo: {temp_filepath}")
                         
                         # 7. Processamento e Totais Ocultos
-                        resultado_proc = process_livro_fiscal(filepath, target, competencia_mes_ano)
+                        resultado_proc = process_livro_fiscal(temp_filepath, target, competencia_mes_ano)
                         
                         # Extrai totais para o resumo
                         v_total = 0; v_iss = 0; v_base = 0; v_pis = 0; v_cof = 0; v_ir = 0; v_csll = 0; v_inss = 0; v_deduc = 0; v_desc = 0
@@ -603,13 +602,70 @@ def run_bot(competencia_mes_ano, config_file_path, wait_for_input=False, output_
                         })
 
                         if resultado_proc.get("status") == "SUCESSO":
-                            log_exec(cnpj, nome_empresa, competencia_mes_ano, "SUCESSO", f"Arquivo {tipo_sigla.upper()} salvo com Totais", index=idx, total=total_targets, csv_path=csv_log_path)
+                            log_exec(cnpj, nome_empresa, competencia_mes_ano, "SUCESSO", f"Arquivo {tipo_sigla.upper()} processado com Totais", index=idx, total=total_targets, csv_path=csv_log_path)
                         else:
-                            log_exec(cnpj, nome_empresa, competencia_mes_ano, "SUCESSO_PARCIAL", f"Arquivo {tipo_sigla.upper()} salvo, mas falha ao injetar Totais Localmente", index=idx, total=total_targets, csv_path=csv_log_path)
+                            log_exec(cnpj, nome_empresa, competencia_mes_ano, "SUCESSO_PARCIAL", f"Arquivo {tipo_sigla.upper()} baixado, falha totais", index=idx, total=total_targets, csv_path=csv_log_path)
                             
                     except Exception as loop_e:
                         print(f"Erro processando {tipo_sigla} de {cnpj}: {loop_e}")
                         log_exec(cnpj, nome_empresa, competencia_mes_ano, "ERRO_TIPO", f"Falha no tipo {tipo_sigla}: {loop_e}", index=idx, total=total_targets, csv_path=csv_log_path)
+                
+                # --- CONSOLIDAÇÃO DAS DUAS ABAS EM UM ÚNICO ARQUIVO ---
+                nome_seguro = nome_empresa.replace('/', '-').replace('\\', '-').strip()
+                if not nome_seguro:
+                    nome_seguro = 'empresa'
+                    
+                out_dir = output_dir if output_dir else LIVROS_DIR
+                base_filename = f"{competencia_mes_ano.replace('/','')}-NFSE-{nome_seguro}"
+                final_filepath = os.path.join(out_dir, f"{base_filename}.xlsx")
+                
+                counter = 1
+                while os.path.exists(final_filepath):
+                    final_filepath = os.path.join(out_dir, f"{base_filename}({counter}).xlsx")
+                    counter += 1
+                    
+                try:
+                    import openpyxl
+                    from copy import copy
+                    
+                    wb_final = openpyxl.Workbook()
+                    wb_final.remove(wb_final.active)
+                    
+                    for key, title in [('ptd', 'Prestados'), ('tmd', 'Tomados')]:
+                        fpath = arquivos_baixados[key]
+                        if not fpath or not os.path.exists(fpath):
+                            ws = wb_final.create_sheet(title)
+                            ws.cell(1, 1, "Sem movimento para esta competência.")
+                            continue
+                            
+                        wb_source = openpyxl.load_workbook(fpath)
+                        ws_source = wb_source.active
+                        ws_target = wb_final.create_sheet(title)
+                        
+                        for row in ws_source.iter_rows():
+                            for cell in row:
+                                new_cell = ws_target.cell(row=cell.row, column=cell.column, value=cell.value)
+                                if cell.has_style:
+                                    new_cell.font = copy(cell.font)
+                                    new_cell.border = copy(cell.border)
+                                    new_cell.fill = copy(cell.fill)
+                                    new_cell.number_format = cell.number_format
+                                    new_cell.protection = copy(cell.protection)
+                                    new_cell.alignment = copy(cell.alignment)
+                                    
+                        for col_letter, col_dim in ws_source.column_dimensions.items():
+                            ws_target.column_dimensions[col_letter].width = col_dim.width
+                            
+                        # Limpeza do temporário
+                        wb_source.close()
+                        os.remove(fpath)
+                        
+                    wb_final.save(final_filepath)
+                    print(f"Arquivo consolidado gerado: {final_filepath}")
+                    if log_callback: log_callback(f"💾 Arquivo consolidado salvo: {os.path.basename(final_filepath)}")
+                except Exception as e_consol:
+                    print(f"Erro ao consolidar abas para {cnpj}: {e_consol}")
+                    if log_callback: log_callback(f"⚠️ Erro ao consolidar planilhas para {cnpj}")
             except Exception as e:
                 msg_traduzida = translate_error(e)
                 print(f"Erro ao processar Empresa {cnpj}: {msg_traduzida}")

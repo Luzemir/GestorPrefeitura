@@ -1,0 +1,88 @@
+html PUBLIC "-//k3C//DTD XHTML I.e Transitiona1//EN" "
+<htm1 xmlns="http : /Aww.w3. ó view-saur•ce) ó
+<head
+• <body class>
+(form method="post" action=" ./NotaFisca1E1etronica .aspx"
+<div Se
+(div
+http : / /www.w3.org/TR/xhtm11/DTD/xhtmll-transitional.dtd">
+<div
+• <div clearfix" " >
+: : before
+<div
+<div
+<div
+< 1-- <div class="grid_12">
+<link href='•
+{script src=". ./ScriDts/Grid.jE"
+<script src=n. ./Scripts/InfoFiscais/NFe.is ?e2852e26011518"
+<script src=n.. [Scripts/grid.locale-pt-br. já"
+{script src=". ./Scripts/jguery=jgGrid . min. dg"
+<script src=". ./Scripts/jguerv.maskedinput-1.2.2.já"
+<script src=n . ./Scripts/InfoFiscais/HistoricoDown10ad.ját•
+<div
+<div id="divInformacaoPesquisa"
+• <div class="grid_12"
+-Cif
+<div 180%; padding-top: 3px; padding-bottom:
+<div style="width: 10%;" > <hr
+V<div id="DIVGrid" style="width: 100%; height: 180%; margin-top: -13px">
+"<div ui-widget ui-widget-content ui-corner-all"
+<div class="ui-widget-overlay iqgrid-overlay" style="display: none;"></div>
+<div class="loading ui-state-default ui-state-active" none;">Carregando.
+"<div
+<div ui-widget-header ui-corner-top ui-helper-clearfix" style="display: none;
+<div ui-iqgrid-toppager" dir="ltr" style="width:
+"<div ui-jqgrid-hdiv"
+• <div
+938px;
+V<table class="ui-jqgrid-htable" style="width: 1573px;" cellpadding= e"
+role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" 60px;
+role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" 50px; display:
+• — role="columnheader" ui-th-column ui-th-ltr ui-state-hover"
+ui-iqgrid-resize-ltr" style="cursor: col-resize;
+<span
+<div
+"iqGridTab1eDIVGrid_
+nfe
+"iqGridTab1eDIVGrid_
+nfe
+"jqGridTab1eDIVGrid_nfe
+"jqGridTab1eDIVGrid_
+nfe
+"jqGridTab1eDIVGrid_nfe
+nfe
+ui-th-column ui-th-ltr" style="width:
+ui-th-column ui-th-ltr" style="width:
+role="columnheader" class="ui-state-default ui-th-column ui-th-ltr" style="width: Ilepx; display:
+ui-th-column ui-th-ltr" leepx; display:
+ui-th-column ui-th-ltr" 35epx; display:
+ui-th-column ui-th-ltr"
+class="ui-state-default ui-th-column ui-th-ltr"
+class=rui-state-default ui-th-column ui-th-ltr" 125px;
+_uf_destinatario" ui-th-column ui-th-ltr"
+ui-th-column ui-th-ltrt• Style=nwidth: 48px; display:
+_vlr_total" ui-th-column ui-th-ltr"
+_bc_icms" ui-th-column ui-th-ltr"
+class="ui-state-default ui-th-column ui-th-ltr"
+ui-th-column ui-th-ltr"
+none ; > </th>
+ui-th-column ui-th-ltr"
+150px; display: none;
+<span class="ui-jqgrid-resize ui-iqgrid-resize-ltr" col-resize;
+<div
+</div>
+<div 10%; width:
+<div
+<div class="ui-state-default ui-iqgrid-pager ui-corner-bottom"
+<script
+: : after
+<footer style="padding: e; position: relative; botton:
+style—"
+— vndth.
+938px;
+<div ui-widget ui-widget-content ui-helper-clearfix
+<div ui-widget-content ui-corner-all ui-jqdialog" role="dialog" style="width:
+p: 454px; Ieft:
+</body>
+html>
