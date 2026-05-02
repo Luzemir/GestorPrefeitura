@@ -14,6 +14,12 @@ def get_app_dir():
     else:
         return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def get_profile_dir(profile_name):
+    """ Retorna a pasta LOCALAPPDATA para armazenar os perfis do Chrome, evitando erro de SQLite em drives de rede """
+    base_dir = os.path.join(os.environ.get("LOCALAPPDATA", os.path.expanduser("~")), "GestorFiscal_Profiles")
+    os.makedirs(base_dir, exist_ok=True)
+    return os.path.join(base_dir, profile_name)
+
 def resource_path(relative_path):
     """ Retorna o caminho absoluto do arquivo empacotado (assets, imgs) pelo PyInstaller. """
     try:
@@ -247,7 +253,7 @@ class App(ctk.CTk):
                 messagebox.showerror("Erro", f"Não foi possível encerrar: {e}")
 
     def start_chrome(self):
-        user_data_path = os.path.join(get_app_dir(), "chrome_profile")
+        user_data_path = get_profile_dir("chrome_profile")
         import shutil
         executable = shutil.which("chrome") or shutil.which("chrome.exe")
         if not executable:
@@ -527,7 +533,7 @@ class App(ctk.CTk):
         self.after(0, _append)
 
     def start_chrome_sefaz(self):
-        user_data_path = os.path.join(get_app_dir(), "chrome_profile_sefaz")
+        user_data_path = get_profile_dir("chrome_profile_sefaz")
         import shutil
         executable = shutil.which("chrome") or shutil.which("chrome.exe")
         if not executable:
