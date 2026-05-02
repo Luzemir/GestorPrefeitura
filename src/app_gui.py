@@ -267,7 +267,7 @@ class App(ctk.CTk):
         chrome_args = [executable, "--remote-debugging-port=9222", f"--user-data-dir={user_data_path}", "--no-first-run", "--no-default-browser-check", url_login]
         try:
             self.status_var.set("Iniciando navegador...")
-            subprocess.Popen(chrome_args, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.Popen(chrome_args, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             self.status_var.set("Navegador aberto.")
             messagebox.showinfo("Sucesso", "Chrome aberto! Siga com o certificado no site.")
         except Exception as e:
@@ -548,7 +548,7 @@ class App(ctk.CTk):
         chrome_args = [executable, "--remote-debugging-port=9223", f"--user-data-dir={user_data_path}", "--no-first-run", "--no-default-browser-check", url_login]
         try:
             self.status_var_sefaz.set("Iniciando navegador Sefaz...")
-            subprocess.Popen(chrome_args, creationflags=subprocess.CREATE_NO_WINDOW)
+            subprocess.Popen(chrome_args, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             self.status_var_sefaz.set("Navegador aberto.")
             messagebox.showinfo("Sucesso", "Chrome aberto! Valide o certificado na Sefaz.")
         except Exception as e:
